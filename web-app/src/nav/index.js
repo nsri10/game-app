@@ -11,16 +11,22 @@ function NavgationBar() {
 
     const { pathname } = useLocation();
     return (
-        <div className="list-group" style={{ width: 350 }}>
-            {links.map((link, index) => (
-                <Link
-                    key={index}
-                    to={`/${link}`}
-                    className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
-                    <FontAwesomeIcon icon={icons[index]} />
-                    {link}
-                </Link>
-            ))}
+        <div className="navbar">
+            <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo"/>
+
+            {/*navbar links*/}
+            <div className="list-group float-top " style={{ width: 350 }}>
+                {links.map((link, index) => (
+                    <Link
+                        key={index}
+                        to={`/${link}`}
+                        className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
+                        <FontAwesomeIcon icon={icons[index]} />
+                        {link}
+                    </Link>
+                ))}
+            </div>
+
         </div>
     );
 }

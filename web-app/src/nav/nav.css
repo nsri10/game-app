@@ -1,5 +1,6 @@
 .navbar {
-    width: 85px;
+    width: 350px;
+    height: 100vh;
     background-color: black;
 }
 
@@ -23,4 +24,8 @@
     text-align: center;
     align-items: center;
     border: 0;
+}
+
+.nav-links {
+vertical-align: top !important;
 }

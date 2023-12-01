@@ -1,0 +1,11 @@
+.search-bar {
+    border-radius: 25px;
+    background-color: white;
+    padding: 20px;
+    width: 200px;
+    height: 15px;
+}
+
+.detail-page {
+    background-color: #262a2c;
+}
