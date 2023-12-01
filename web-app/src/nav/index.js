@@ -6,7 +6,7 @@ function NavgationBar() {
     const links = ["Home", "Discussions", "Search"];
     const { pathname } = useLocation();
     return (
-        <div className="list-group" style={{ width: 100 }}>
+        <div className="list-group" style={{ width: 350 }}>
             {links.map((link, index) => (
                 <Link
                     key={index}
