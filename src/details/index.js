@@ -1,11 +1,11 @@
-import NavgationBar from "../nav";
+import NavigationBar from "../nav";
 
 import "./details.css";
 
 function Details() {
     return (
         <div className="d-flex detail-page">
-            <NavgationBar />
+            <NavigationBar />
 
             <h1>detail</h1>
             <div>
