@@ -1,13 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faMagnifyingGlass, faComment } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faMagnifyingGlass, faComment, faUser} from '@fortawesome/free-solid-svg-icons'
 
 import "./nav.css";
 
 function NavgationBar() {
-    const links = ["home", "discussions", "search"];
-    const icons = [faHouse, faMagnifyingGlass, faComment];
+    const links = ["home", "profile", "discussions", "search"];
+    const icons = [faHouse, faUser, faMagnifyingGlass, faComment];
 
     const { pathname } = useLocation();
     return (
