@@ -5,7 +5,7 @@ import { faHouse, faMagnifyingGlass, faComment, faUser} from '@fortawesome/free-
 
 import "./nav.css";
 
-function NavgationBar() {
+function NavigationBar() {
     const links = ["home", "profile", "discussions", "search"];
     const icons = [faHouse, faUser, faMagnifyingGlass, faComment];
 
@@ -30,4 +30,4 @@ function NavgationBar() {
         </div>
     );
 }
-export default NavgationBar
+export default NavigationBar
