@@ -6,7 +6,7 @@ import { faHouse, faMagnifyingGlass, faComment } from '@fortawesome/free-solid-s
 import "./nav.css";
 
 function NavgationBar() {
-    const links = ["Home", "Discussions", "Search"];
+    const links = ["home", "discussions", "search"];
     const icons = [faHouse, faMagnifyingGlass, faComment];
 
     const { pathname } = useLocation();
@@ -15,14 +15,14 @@ function NavgationBar() {
             <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo"/>
 
             {/*navbar links*/}
-            <div className="list-group float-top " style={{ width: 350 }}>
+            <div className="list-group float-top ps-4" style={{ width: 250 }}>
                 {links.map((link, index) => (
                     <Link
                         key={index}
                         to={`/${link}`}
                         className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
-                        <FontAwesomeIcon icon={icons[index]} />
-                        {link}
+                        <FontAwesomeIcon icon={icons[index]} className="me-2" />
+                        {link.toUpperCase()}
                     </Link>
                 ))}
             </div>

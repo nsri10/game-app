@@ -1,17 +1,16 @@
 .navbar {
-    width: 350px;
+    width: 250px;
     height: 100vh;
     background-color: black;
 }
 
 .navbar-item {
-    align-items: center;
     padding: 10px;
     background-color: black !important;
-    color: white !important;
+    color: rgba(255, 255, 255, 0.727) !important;
     text-decoration: none;
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: left;
     font-size: small;
     border: 0 !important;
     font-size: 20px;
@@ -19,13 +18,13 @@
 
 .navbar-item:hover {
     background-color: black;
-    color: white;
+    color: white !important;
     text-decoration: none;
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: left;
     border: 0;
 }
 
 .nav-links {
-vertical-align: top !important;
+    vertical-align: top !important;
 }
