@@ -4,6 +4,9 @@
     padding: 20px;
     width: 200px;
     height: 15px;
+    margin:25px;
+    flex-direction: row;
+    width: 50%;
 }
 
 .detail-page {
