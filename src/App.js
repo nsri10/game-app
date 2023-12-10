@@ -8,8 +8,6 @@ import "bootstrap";
 import { HashRouter } from "react-router-dom";
 import { Routes, Route, Navigate } from "react-router";
 
-import Details from "./details/index.js";
-
 import './App.css';
 import Webpage from './webpage/index.js';
 
