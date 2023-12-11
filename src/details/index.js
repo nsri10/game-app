@@ -1,9 +1,5 @@
-import { Navigate, Route, Routes, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Carousel from 'react-bootstrap/Carousel';
-import axios from "axios";
-
 import "./details.css";
+import DetailCarousel from "./carousel";
 
 function Details() {
     return (
@@ -16,17 +12,7 @@ function Details() {
 
             </div>
 
-            <Carousel className="gameImgs">
-                <Carousel.Item>
-                    <img src="/imgs/placeholders/friday_nights.png" text="First slide" className="center_game_img" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src="/imgs/placeholders/FY0tp1LXwAA-BuY.jpg" text="First slide" className="center_game_img" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src="/imgs/placeholders/FYQtAnnaMAE3gdn.jpg" text="First slide" className="center_game_img" />
-                </Carousel.Item>
-            </Carousel>
+            <DetailCarousel />
 
         </div >
     )
