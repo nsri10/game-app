@@ -12,10 +12,9 @@ function NavigationBar() {
     const { pathname } = useLocation();
     return (
         <div className="navbar">
-            <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo"/>
-
+            <img src="/gameLogo.png" alt="Game List Logo" className="center"/>
             {/*navbar links*/}
-            <div className="list-group float-top ps-4" style={{ width: 250 }}>
+            <div className="list-group ps-4 nav-links" style={{ width: 250 }}>
                 {links.map((link, index) => (
                     <Link
                         key={index}

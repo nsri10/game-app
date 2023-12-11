@@ -1,7 +1,13 @@
 import * as client from "../users/client";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import * as client from "../users/client";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./profile.css";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
