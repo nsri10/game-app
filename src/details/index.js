@@ -1,17 +1,26 @@
-import NavigationBar from "../nav";
+import { Navigate, Route, Routes, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Carousel from 'react-bootstrap/Carousel';
+import axios from "axios";
 
 import "./details.css";
 
 function Details() {
     return (
-        <div className="d-flex detail-page">
-            <NavigationBar />
+        <div>
+            <h1>title</h1>
 
-            <h1>detail</h1>
-            <div>
-                <input type="text" className="search-bar" placeholder="Search for Games"/>
-
-            </div>
+            <Carousel>
+                <Carousel.Item>
+                    <img src="/imgs/placeholders/friday_nights.png" text="First slide" />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img src="/imgs/placeholders/FY0tp1LXwAA-BuY.jpg" text="First slide" />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img src="/imgs/placeholders/friday_nights.png" text="First slide" />
+                </Carousel.Item>
+            </Carousel>
         </div>
     )
 }

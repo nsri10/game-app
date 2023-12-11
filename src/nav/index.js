@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faMagnifyingGlass, faComment, faUser} from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faMagnifyingGlass, faComment, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import "./nav.css";
 
@@ -11,9 +11,8 @@ function NavigationBar() {
 
     const { pathname } = useLocation();
     return (
-        <div className="navbar">
-            <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo"/>
-
+        <div className="nav-bar">
+            <img src="/imgs/gameLogo.png" alt="Game List Logo" className="center" />
             {/*navbar links*/}
             <div className="list-group float-top ps-4" style={{ width: 250 }}>
                 {links.map((link, index) => (
@@ -26,8 +25,7 @@ function NavigationBar() {
                     </Link>
                 ))}
             </div>
-
         </div>
     );
 }
-export default NavigationBar
+export default NavigationBar;
