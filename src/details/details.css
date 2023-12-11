@@ -40,3 +40,32 @@
     margin: 10px;
     margin-left: 25px;
 }
+
+.review {
+    background-color: #262a2c;
+    width: fit-content;
+    border: 0;
+}
+
+.review_pfp {
+    display: inline;
+}
+
+.review_desc {
+    display: inline;
+}
+
+h1 {
+    color: white;
+    margin: 25px;
+}
+
+p {
+    color: white;
+    margin: 25px;
+}
+
+span {
+    color: white;
+    margin: 25px;
+}
