@@ -1,8 +1,8 @@
 import * as client from "../users/client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./signup.css";
-import { Link } from "react-router-dom";
+import "./signin.css";
+import { Link, useLocation } from "react-router-dom";
 
 function Signin() {
   const [credentials, setCredentials] = useState({
@@ -42,13 +42,13 @@ function Signin() {
           </div>
         </div>
 
-        {/* RIGHT CONTAINER */}
-
         <div className="col-md-6">
           <div className="p-5 mt-3">
-            <p className="bold-white subheader">Sign Up</p>
-
-            {/* Username and password */}
+            <p className="bold-white subheader">Sign In</p>
+            <p className="subheader2">
+              Welcome back! Please login to your account.
+            </p>
+            <br />
             <label htmlFor="username" className="form-label label-style">
               User Name
             </label>
@@ -60,7 +60,6 @@ function Signin() {
               }
             />
             <br />
-
             <label htmlFor="username" className="form-label label-style">
               Password
             </label>
@@ -73,63 +72,22 @@ function Signin() {
               }
             />
             <br />
-
-            {/* Radio Buttons */}
-            <div className="mb-3">
-              <label className="form-label label-style">
-                Select your identity:
-              </label>
-              <p class="subheader2">I am a...</p>
-              <div className="form-check">
-                <input
-                  type="radio"
-                  id="gamer"
-                  className="form-check-input "
-                  value="gamer"
-                  checked={credentials.userType === "gamer"}
-                  onChange={() => handleUserTypeChange("gamer")}
-                />
-                <label
-                  htmlFor="gamer"
-                  className="form-check-label label-style-radio"
-                >
-                  Gamer
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  type="radio"
-                  id="developer"
-                  className="form-check-input"
-                  value="developer"
-                  checked={credentials.userType === "developer"}
-                  onChange={() => handleUserTypeChange("developer")}
-                />
-                <label
-                  htmlFor="developer"
-                  className="form-check-label label-style-radio"
-                >
-                  Developer
-                </label>
-              </div>
-            </div>
-
-            <br />
             <button className="purple-button" onClick={signin}>
-              Create Account
+              Login
             </button>
             <br />
-            <br />
+            <br /> <br />
             <p className="h7">
-              Already a user?{" "}
-              <Link to="/signin" className="blue-bold-text">
-                Login.
+              New user?{" "}
+              <Link to="/signup" className="blue-bold-text">
+                Create an account.
               </Link>
               <br />
               <Link to="/details" className="blue-bold-text">
-                Continue without an account.
+                Continue without logging in.
               </Link>
             </p>
+            <br />
           </div>
         </div>
       </div>

@@ -71,44 +71,8 @@
   font-family: "helvetica";
 }
 
-.label-style-radio {
-  color: white;
-  font-size: 100%;
-  font-family: "helvetica";
-}
-
 .subheader2 {
-  font-size: 100%;
+  font-size: 120%;
   color: white;
-}
-
-.h7 {
-  color: white;
-}
-
-.purple-button {
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  width: 90%;
-  color: #ffffff;
-  background-color: #6243f5;
-  border-radius: 50px;
-  border: #6243f5;
-  transition: 0.3s ease;
-}
-.blue-bold-text {
-  color: #aac4ff;
-  font-weight: bold;
-}
-a:hover {
-  text-decoration: none;
-  color: #6243f5;
-}
-a:link {
-  text-decoration: none;
+  font-family: "helvetica";
 }

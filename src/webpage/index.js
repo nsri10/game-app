@@ -4,6 +4,7 @@ import Details from "../details";
 import Profile from "../profile";
 import NavigationBar from "../nav";
 import Signup from "../signup";
+import Signin from "../signin";
 
 import "./index.css";
 
@@ -25,6 +26,7 @@ function Webpage() {
             <Route path="/details/*" element={<Details />} />
             <Route path="/profile/*" element={<Profile />} />
             <Route path="/signup/*" element={<Signup />} />
+            <Route path="/signin/*" element={<Signup />} />
           </Routes>
         </div>
       </div>

@@ -39,15 +39,15 @@ function NavigationBar() {
             discussions, and get exclusive news!
           </h6>
           <br />
-          <a href="/signup" className="purple-button">
+          <Link to="/signup" className="purple-button">
             Sign Up
-          </a>
+          </Link>
           <br />
           <br />
 
-          <a href="/signin" className="purple-button">
+          <Link to="/signin" className="purple-button">
             Sign In
-          </a>
+          </Link>
         </div>
       </div>
     </div>
