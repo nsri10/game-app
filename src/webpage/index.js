@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router";
 import Details from "../details";
 import Profile from "../profile";
 import NavigationBar from "../nav";
+import Home from "../home";
 
 import "./index.css";
 
@@ -17,7 +18,8 @@ function Webpage() {
                 </div>
                 <div className="row">
                     <Routes>
-                        <Route path="/" element={<Navigate to="/details/" />} />
+                        <Route path="/" element={<Navigate to="/home/" />} />
+                        <Route path="/home/*" element={<Home />} />
                         <Route path="/details/*" element={<Details />} />
                         <Route path="/profile/*" element={<Profile />} />
                     </Routes>
