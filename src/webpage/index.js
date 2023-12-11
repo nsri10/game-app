@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router";
 
 import Details from "../details";
+import Profile from "../profile";
 import NavigationBar from "../nav";
 
 import "./index.css";
@@ -18,6 +19,7 @@ function Webpage() {
                     <Routes>
                         <Route path="/" element={<Navigate to="/details/" />} />
                         <Route path="/details/*" element={<Details />} />
+                        <Route path="/profile/*" element={<Profile />} />
                     </Routes>
                 </div>
             </div>
