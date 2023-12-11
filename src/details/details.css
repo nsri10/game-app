@@ -9,3 +9,34 @@
 .detail-page {
     background-color: #262a2c;
 }
+
+.center_game_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 450px;
+}
+
+.gameImgs {
+    display: block;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 900px;
+    max-width: 1400px;
+    background-color: black;
+}
+
+.gameButton {
+    display: inline;
+    width: 15%;
+    margin: 5px;
+}
+
+.title {
+    color: white;
+    display: inline;
+    width: 50%;
+    margin: 10px;
+    margin-left: 25px;
+}

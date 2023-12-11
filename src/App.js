@@ -8,16 +8,14 @@ import "bootstrap";
 import { HashRouter } from "react-router-dom";
 import { Routes, Route, Navigate } from "react-router";
 
-import Details from "./details/index.js";
-
 import './App.css';
+import Webpage from './webpage/index.js';
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/details" />} />
-        <Route path="/details/*" element={<Details />} />
+        <Route path="/*" element={<Webpage />} />
       </Routes>
     </HashRouter>
   );
