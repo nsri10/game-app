@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import DetailCarousel from "./carousel";
 import axios from "axios";
+import * as client from "./client";
 
 import "./details.css";
 import WriteReview from "./writeReview";
@@ -9,7 +10,17 @@ import WriteReview from "./writeReview";
 function Details() {
     const { gameId } = useParams();
     const [game, setGame] = useState({});
+    const [updates, setUpdates] = useState({});
 
+    const getUpdates = async () => {
+        const update = await client.findAllUpdates('400');
+        setUpdates(update);
+        console.log(update);
+    };
+
+    useEffect(() => {
+        getUpdates();
+    }, []);
 
     return (
         <div>

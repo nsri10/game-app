@@ -1,15 +1,16 @@
 import axios from "axios";
+import { useParams } from "react-router";
 
 const request = axios.create({
     withCredentials: true,
 });
 
-export const BASE_API = process.env.REACT_APP_BASE_API_URL;
-export const REVIEWS_API = `${BASE_API}/api/reviews`;
+//export const BASE_API = process.env.REACT_APP_BASE_API_URL;
+//export const REVIEWS_API = `${BASE_API}/api/reviews`;
 export const STEAM_API = process.env.REACT_APP_STEAM_API;
 export const STEAM_UPDATES_API = process.env.REACT_APP_GAME_UPDATES;
-export const UPDATES_API = STEAM_API.concat(STEAM_UPDATES_API);
-
+export const UPDATES_API = `${STEAM_API}${STEAM_UPDATES_API}`;
+/*
 //---------------------------------------------------------- REVIEW SECTION ----------------------------------------------------------
 export const findAllReviews = async () => {
     const response = await request.get(`${REVIEWS_API}`);
@@ -36,10 +37,11 @@ export const deleteReview = async (review) => {
         `${USERS_API}/${review._id}`);
     return response.data;
 };
-
+*/
 //---------------------------------------------------------- UPDATE SECTION ----------------------------------------------------------
 
 export const findAllUpdates = async (gameID) => {
-    const response = await request.get(`${UPDATES_API}`.concat(gameID));
+    console.log(`${STEAM_UPDATES_API}${gameID}`);
+    const response = await request.get(`${UPDATES_API}${gameID}`);
     return response.data;
 };
