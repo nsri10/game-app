@@ -4,16 +4,16 @@ import { useNavigate } from "react-router-dom";
 import "./signup.css";
 import { Link } from "react-router-dom";
 
-function Signin() {
+function Signup() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
     userType: "gamer", // Default to "gamer"
   });
   const navigate = useNavigate();
-  const signin = async () => {
-    await client.signin(credentials);
-    navigate("/project/account");
+  const signup = async () => {
+    await client.signup(credentials);
+    navigate("/home");
   };
   const handleUserTypeChange = (userType) => {
     setCredentials({ ...credentials, userType });
@@ -115,7 +115,7 @@ function Signin() {
             </div>
 
             <br />
-            <button className="purple-button" onClick={signin}>
+            <button className="purple-button" onClick={signup}>
               Create Account
             </button>
             <br />
@@ -137,4 +137,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;

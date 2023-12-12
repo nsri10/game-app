@@ -18,8 +18,8 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/*" element={<Webpage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup/*" element={<Signup />} />
+        <Route path="/signin/*" element={<Signin />} />
       </Routes>
     </HashRouter>
   );

@@ -13,7 +13,7 @@ function Signin() {
   const navigate = useNavigate();
   const signin = async () => {
     await client.signin(credentials);
-    navigate("/project/account");
+    navigate("/home");
   };
   const handleUserTypeChange = (userType) => {
     setCredentials({ ...credentials, userType });
