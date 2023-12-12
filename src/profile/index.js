@@ -34,7 +34,7 @@ function ProfileStatus({ account, id, isLoggedIn }) {
         );
     } else {
         return (
-            <h1>Log in to see profile</h1>
+            <h1>Anonymous User</h1>
         );
     }
 }
@@ -61,15 +61,12 @@ function Profile() {
     return (
         <div className="profile mt-5 ms-5">
             <div className="d-flex mb-5">
-                <FontAwesomeIcon icon={faUserCircle} className="profile-icon mb-3 me-5"/>
+                <FontAwesomeIcon icon={faUserCircle} className="profile-icon mb-3 me-3"/>
                 <ProfileStatus
                     account={account}
                     id={id}
                     isLoggedIn={isLoggedIn}
                 />
-            </div>
-            <div>
-                <h2>HI</h2>
             </div>
         </div>
     )
