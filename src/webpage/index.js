@@ -19,7 +19,8 @@ function Webpage() {
                     <Routes>
                         <Route path="/" element={<Navigate to="/details/" />} />
                         <Route path="/details/*" element={<Details />} />
-                        <Route path="/profile/*" element={<Profile />} />
+                        <Route path="/profile/" element={<Profile />} />
+                        <Route path="/profile/:id" element={<Profile />} />
                     </Routes>
                 </div>
             </div>
