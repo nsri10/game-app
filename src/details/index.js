@@ -9,15 +9,8 @@ import WriteReview from "./writeReview";
 function Details() {
     const { gameId } = useParams();
     const [game, setGame] = useState({});
-    const URL = "http://localhost:4000/api/games";
 
-    const findGameById = async (gameId) => {
-        const response = await axios.get(
-            `${URL}/${gameId}`
-        );
-        //console.log(response);
-        setGame(response.data);
-    };
+
     return (
         <div>
             <div className="row">
