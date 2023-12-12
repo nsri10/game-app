@@ -33,7 +33,7 @@
     margin: 5px;
 }
 
-.title {
+.gameTitle {
     color: white;
     display: inline;
     width: 50%;
@@ -80,7 +80,6 @@
     height: 15px;
     margin-bottom: 10px;
 }
-
 
 h1 {
     color: white;

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import DetailCarousel from "./carousel";
+import axios from "axios";
 
 import "./details.css";
 import WriteReview from "./writeReview";
@@ -20,7 +21,7 @@ function Details() {
     return (
         <div>
             <div className="row">
-                <h1 className="title margin8ps">title</h1>
+                <h1 className="gameTitle margin8ps">title</h1>
 
                 <button style={{ marginLeft: "auto" }} className="btn btn-primary gameButton">Purchase</button>
                 <button style={{ marginRight: "25px" }} className="btn btn-primary gameButton">Favorite</button>
