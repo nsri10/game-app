@@ -1,7 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faMagnifyingGlass, faComment, faUser} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faHouse,
+    faMagnifyingGlass,
+    faComment,
+    faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./nav.css";
 
@@ -12,9 +17,10 @@ function NavigationBar() {
     const { pathname } = useLocation();
     return (
         <div className="navbar">
-            <img src="/gameLogo.png" alt="Game List Logo" className="center"/>
+            <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo" />
+
             {/*navbar links*/}
-            <div className="list-group ps-4 nav-links" style={{ width: 250 }}>
+            <div className="list-group float-top ps-4" style={{ width: 250 }}>
                 {links.map((link, index) => (
                     <Link
                         key={index}
@@ -25,8 +31,25 @@ function NavigationBar() {
                     </Link>
                 ))}
             </div>
+            <div>
+                <br />
+                <h6>
+                    Sign in or create an account to favorite games, participate in
+                    discussions, and get exclusive news!
+                </h6>
+                <br />
+                <Link to="/signup" className="purple-button">
+                    Sign Up
+                </Link>
+                <br />
+                <br />
+
+                <Link to="/signin" className="purple-button">
+                    Sign In
+                </Link>
+            </div>
 
         </div>
     );
 }
-export default NavigationBar
+export default NavigationBar;
