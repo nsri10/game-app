@@ -9,7 +9,7 @@ function Webpage() {
     return (
 
         <div className="d-flex detail-page">
-            <NavigationBar />
+            <NavigationBar style={{position:"fixed"}}/>
 
             <div style={{ width: "100%" }}>
 

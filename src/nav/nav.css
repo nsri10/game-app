@@ -2,6 +2,8 @@
     width: 250px;
     height: 100vh;
     background-color: black;
+    position: sticky;
+    top: 0;
 }
 
 .navbar-item {
@@ -38,6 +40,7 @@
 
 .nav-links {
     vertical-align: top !important;
+    margin-bottom: auto;
 }
 
 .center {

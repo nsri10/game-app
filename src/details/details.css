@@ -38,22 +38,49 @@
     display: inline;
     width: 50%;
     margin: 10px;
-    margin-left: 25px;
 }
 
 .review {
     background-color: #262a2c;
+    vertical-align: top;
     width: fit-content;
     border: 0;
 }
 
 .review_pfp {
     display: inline;
+    vertical-align: top;
+}
+
+.review_details {
+    display: inline-block;
+}
+
+.review_title {
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .review_desc {
-    display: inline;
+    font-size: 20px;
 }
+
+.review_date {
+    font-style: italic;
+}
+
+.margin8ps {
+    margin-left: 8%;
+}
+
+.input-review-title {
+    border-radius: 25px;
+    background-color: white;
+    padding: 20px;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
 
 h1 {
     color: white;
@@ -68,4 +95,11 @@ p {
 span {
     color: white;
     margin: 25px;
+}
+
+hr {
+    color: white;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
 }
