@@ -17,7 +17,7 @@ function LatestReleases() {
         <SideScroller>
           {releases.map((item, index) => (
             <span key={index}>
-              <Card className="cardStyle">
+              <Card style={{marginBottom: -5, marginTop: -20}} className="cardStyle">
                 <Card.Img style={{objectFit: 'cover'}} variant="top" src="https://www.touchtapplay.com/wp-content/uploads/2021/12/Genshin-Impact-2.4-Featured-2.jpg?fit=640%2C347"/>
                 <Card.Body>
                   <Card.Title className="home-text2">Genshin Impact</Card.Title>
