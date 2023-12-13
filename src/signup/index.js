@@ -10,7 +10,7 @@ function Signup() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    userType: "gamer", // Default to "gamer"
+    role: "gamer", // Default to "gamer"
   });
   const navigate = useNavigate();
   const signup = async () => {
@@ -21,8 +21,8 @@ function Signup() {
       setError(err.response.data.message);
     }
   };
-  const handleUserTypeChange = (userType) => {
-    setCredentials({ ...credentials, userType });
+  const handleUserTypeChange = (role) => {
+    setCredentials({ ...credentials, role });
   };
 
   return (
