@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useParams } from "react-router";
 
 const request = axios.create({
     withCredentials: true,
@@ -7,6 +6,7 @@ const request = axios.create({
 
 export const BASE_API = process.env.REACT_APP_BASE_API_URL;
 export const REVIEWS_API = `${BASE_API}/api/reviews`;
+export const GAMES_API = `${BASE_API}/api/games`;
 
 export const STEAM_API = process.env.REACT_APP_STEAM_API;
 export const STEAM_UPDATES_API = process.env.REACT_APP_GAME_UPDATES;
@@ -20,7 +20,7 @@ export const findAllReviews = async () => {
 };
 
 export const findReviewById = async (id) => {
-    const response = await request.get(`${REVIEWS_API}/${id}`);
+    const response = await request.get(`${REVIEWS_API}/${id}`); 
     return response.data;
 };
 
@@ -45,5 +45,16 @@ export const deleteReview = async (review) => {
 export const findAllUpdates = async (gameID) => {
     console.log(STEAM_API);
     const response = await request.get(`${UPDATES_API}${gameID}`);
+    return response.data;
+};
+
+//---------------------------------------------------------- GAME SECTION ----------------------------------------------------------
+export const findAllGames = async () => {
+    const response = await request.get(`${GAMES_API}`);
+    return response.data;
+};
+
+export const findGameById = async (id) => {
+    const response = await request.get(`${GAMES_API}/${id}`); 
     return response.data;
 };

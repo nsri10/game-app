@@ -8,23 +8,30 @@ import "./details.css";
 import WriteReview from "./writeReview";
 
 function Details() {
-    const { gameId } = useParams();
+    const { gameID } = useParams();
     const [game, setGame] = useState({});
     const [reviews, setReviews] = useState([]);
 
     const getReviews = async () => {
-        const review = await client.findReviewById(100);
+        const review = await client.findReviewById(gameID); //100
         setReviews(review);
+    };
+
+    const getGame = async () => {
+        const gotGame = await client.findGameById(gameID); //100
+        setGame(gotGame);
+        console.log(game);
     };
 
     useEffect(() => {
         getReviews();
+        getGame();
     }, []);
 
     return (
         <div>
             <div className="row">
-                <h1 className="gameTitle margin8ps">title</h1>
+                <h1 className="gameTitle margin8ps">{game.title}</h1>
 
                 <button style={{ marginLeft: "auto" }} className="btn btn-primary gameButton">Purchase</button>
                 <button style={{ marginRight: "25px" }} className="btn btn-primary gameButton">Favorite</button>
@@ -35,12 +42,7 @@ function Details() {
             <div className="row margin8ps">
                 <h1>About</h1>
                 <p>
-                    Description of game
-
-                    Yar har, fiddle de dee
-                    Being a pirate is alright to be
-                    Do what you want 'cause a pirate is free
-                    You are a pirate!
+                    {game.desc}
                 </p>
             </div>
             <hr />
