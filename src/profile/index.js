@@ -8,6 +8,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 function ProfileStatus({ account, id, isLoggedIn }) {
     console.log(isLoggedIn);
+    console.log(account);
     if (id) {
         return (
             <div>
