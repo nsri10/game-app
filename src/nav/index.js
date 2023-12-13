@@ -12,7 +12,7 @@ import "./nav.css";
 
 function NavigationBar() {
     const links = ["home", "profile", "discussions", "search"];
-    const icons = [faHouse, faUser, faMagnifyingGlass, faComment];
+    const icons = [faHouse, faUser, faComment, faMagnifyingGlass];
 
     const { pathname } = useLocation();
     return (

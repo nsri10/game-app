@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Webpage() {
+  const [search, setSearch] = useState();
   const [refresh, setRefresh] = useState(true);
 
   return (
@@ -25,13 +26,15 @@ function Webpage() {
         <div className="row">
           <div>
             <input
+              id="searchBar"
               type="text"
               className="search-bar"
               placeholder="Search for Games"
+              onChange={(e) => setSearch(e.target.value)}
             />
             <Link className="btn btn-circle btn-primary"
-              to={`/search/stardew`}
-              onClick={() => (setRefresh(!refresh))}>
+              to={`/search/${search}`}
+              onClick={() =>setRefresh(!refresh)}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Link>
 
