@@ -79,10 +79,12 @@ function Details() {
                 <div className="list-group" style={{ marginLeft: 25 }}>
                     {reviews.map((review, index) => (
                         <div key={index} className="list-group-item review">
+
                             <div style={{ display: "inline-block", width: "fit-content" }}>
                                 <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" /><br />
                                 <span>@{review.user}</span>
                             </div>
+                            
                             <div className="review_details">
                                 <span className="review_title">{review.title}</span><br />
                                 <span className="review_date">Posted on {review.date}</span><br />
