@@ -6,10 +6,8 @@ import "./profile.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-function ProfileStatus({ account, id, isLoggedIn }) {
-    console.log(`IsLoggedIn: ${isLoggedIn}`);
-    console.log(`account: ${account}`);
-    if (id) {
+function ProfileStatus({ account, username }) {
+    if (username) {
         return (
             <div>
                 {account && (
@@ -19,7 +17,7 @@ function ProfileStatus({ account, id, isLoggedIn }) {
                 )}
             </div>
         );
-    } else if (isLoggedIn) {
+    } else if (account) {
         return (
             <div>
                 <div className="me-5">
@@ -31,7 +29,7 @@ function ProfileStatus({ account, id, isLoggedIn }) {
                         </p>
                     </div>
                     )}
-                    <Link to={`/profile/edit_profile/${account._id}`}>
+                    <Link to={`/profile/edit_profile/${account.username}`}>
                         <button className="btn btn-secondary edit-data mt-0 ms-4">
                             Edit personal data
                         </button>
@@ -47,10 +45,10 @@ function ProfileStatus({ account, id, isLoggedIn }) {
 }
 
 function Profile() {
-    const { id } = useParams();
+    const { username } = useParams();
     const [account, setAccount] = useState(null);
-    const findUserById = async (id) => {
-        const user = await client.findUserById(id);
+    const findUserByUsername = async (username) => {
+        const user = await client.findUserByUsername(username);
         setAccount(user);
     };    
     const fetchAccount = async () => {
@@ -58,21 +56,19 @@ function Profile() {
         setAccount(account);
     };
     useEffect(() => {
-        if (id) {
-            findUserById(id);
+        if (username) {
+            findUserByUsername(username);
         } else {
             fetchAccount();
         }
     }, []);
-    const isLoggedIn = account != null;
     return (
         <div className="profile mt-5 ms-5">
             <div className="d-flex mb-5">
                 <FontAwesomeIcon icon={faUserCircle} className="profile-icon mb-5 ms-2 me-5"/>
                 {<ProfileStatus
                     account={account}
-                    id={id}
-                    isLoggedIn={isLoggedIn}
+                    username={username}
                 />}
             </div>
         </div>

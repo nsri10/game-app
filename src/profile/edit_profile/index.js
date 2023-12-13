@@ -5,11 +5,11 @@ import "../profile.css";
 import "./edit.css";
 
 function ProfileEditor() {
-    const { id } = useParams();
+    const { username } = useParams();
     const navigate = useNavigate();
     const [account, setAccount] = useState(null);
-    const findUserById = async (id) => {
-        const user = await client.findUserById(id);
+    const findUserByUsername = async (username) => {
+        const user = await client.findUserByUsername(username);
         setAccount(user);
     }; 
     const save = async () => {
@@ -17,7 +17,7 @@ function ProfileEditor() {
         navigate("/profile");
     };       
     useEffect(() => {
-        findUserById(id);
+        findUserByUsername(username);
     }, []);
     return (
         <div className="profile mt-5 ms-5">
