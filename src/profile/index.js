@@ -6,6 +6,43 @@ import "./profile.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
+<<<<<<< Updated upstream
+=======
+function ProfileStatus({ account, id, isLoggedIn }) {
+    console.log(isLoggedIn);
+    console.log(account);
+    if (id) {
+        return (
+            <div>
+                {account && (
+                <div>
+                    <h1>{account.username}</h1>
+                </div>
+                )}
+            </div>
+        );
+    } else if (isLoggedIn) {
+        return (
+            <div>
+                {account && (
+                <div>
+                    <h1>{account.username}</h1>
+                    <p>
+                        {account.email}<br/>
+                        {account.dob}<br/>
+                    </p>
+                </div>
+                )}
+            </div>
+        );
+    } else {
+        return (
+            <h1>Anonymous User</h1>
+        );
+    }
+}
+
+>>>>>>> Stashed changes
 function Profile() {
     // const [account, setAccount] = useState(null);
     // const navigate = useNavigate();
