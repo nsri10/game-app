@@ -54,6 +54,7 @@
 
 .review_details {
     display: inline-block;
+    vertical-align: top;
 }
 
 .review_title {
@@ -78,6 +79,7 @@
     background-color: white;
     padding: 20px;
     height: 15px;
+    width: 100%;
     margin-bottom: 10px;
 }
 

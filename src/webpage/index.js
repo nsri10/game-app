@@ -5,9 +5,9 @@ import Profile from "../profile";
 import ProfileEditor from "../profile/edit_profile";
 import NavigationBar from "../nav";
 import Signup from "../signup";
-import Signin from "../signin";
 
 import "./index.css";
+import Search from "../search";
 
 function Webpage() {
   return (
@@ -23,15 +23,13 @@ function Webpage() {
         </div>
         <div className="row">
           <Routes>
-            <Route path="/" element={<Navigate to="/details/" />} />
-            <Route path="/details/*" element={<Details />} />
-<<<<<<< Updated upstream
-            <Route path="/profile/*" element={<Profile />} />
-=======
+            <Route path="/" element={<Navigate to="/details/100" />} />
+            <Route path="/search/*" element={<Search />} />
+            <Route path="/details/" element={<Navigate to="/search/"/>} />
+            <Route path="/details/:gameID" element={<Details />} />
             <Route path="/profile/" element={<Profile />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/profile/edit_profile/:id" element={<ProfileEditor />} />
->>>>>>> Stashed changes
             <Route path="/signup/*" element={<Signup />} />
             <Route path="/signin/*" element={<Signup />} />
           </Routes>

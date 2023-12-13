@@ -1,13 +1,12 @@
 import * as client from "../users/client";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./profile.css";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-<<<<<<< Updated upstream
-=======
+/*
 function ProfileStatus({ account, id, isLoggedIn }) {
     console.log(isLoggedIn);
     console.log(account);
@@ -24,15 +23,21 @@ function ProfileStatus({ account, id, isLoggedIn }) {
     } else if (isLoggedIn) {
         return (
             <div>
-                {account && (
-                <div>
-                    <h1>{account.username}</h1>
-                    <p>
-                        {account.email}<br/>
-                        {account.dob}<br/>
-                    </p>
+                <div className="me-5">
+                    {account && (
+                    <div>
+                        <h1>{account.username}</h1>
+                        <p>
+                        Email: {account.email}<br />
+                        </p>
+                    </div>
+                    )}
                 </div>
-                )}
+                <Link to={`/profile/edit_profile/${id}`}>
+                    <button className="btn btn-secondary edit-data mt-3 ms-3">
+                        Edit personal data
+                    </button>
+                </Link>
             </div>
         );
     } else {
@@ -41,27 +46,50 @@ function ProfileStatus({ account, id, isLoggedIn }) {
         );
     }
 }
+*/
 
->>>>>>> Stashed changes
 function Profile() {
-    // const [account, setAccount] = useState(null);
-    // const navigate = useNavigate();
-    // const fetchAccount = async () => {
-    // const account = await client.account();
-    //     setAccount(account);
-    // };
-    // useEffect(() => {
-    //     fetchAccount();
-    // }, []);
+    const { id } = useParams();
+    const [account, setAccount] = useState(null);
+    const findUserById = async (id) => {
+        const user = await client.findUserById(id);
+        setAccount(user);
+    };    
+    const fetchAccount = async () => {
+    const account = await client.account();
+        setAccount(account);
+    };
+    useEffect(() => {
+        if (id) {
+            findUserById(id);
+        } else {
+            fetchAccount();
+        }
+    }, []);
     return (
-        <div className="d-flex">
-            <div className="profile-text mt-5 ms-5">
-                <FontAwesomeIcon icon={faUserCircle} className="profile-icon mb-3"/>
-                <h1>Username</h1>
-                <p>
-                    Email <br/>
-                    Phone <br/>
-                </p>
+        <div className="profile mt-5 ms-5">
+            <div className="d-flex mb-5">
+                <FontAwesomeIcon icon={faUserCircle} className="profile-icon mb-5 ms-2 me-5"/>
+                <div className="me-5">
+                    {account && (
+                    <div>
+                        <h1>{account.username}</h1>
+                        <p>
+                        Email: {account.email}<br />
+                        </p>
+                    </div>
+                    )}
+                </div>
+                <Link to={`/profile/edit_profile/${id}`}>
+                    <button className="btn btn-secondary edit-data mt-3 ms-3">
+                        Edit personal data
+                    </button>
+                </Link>
+                {/* <ProfileStatus
+                    account={account}
+                    id={id}
+                    isLoggedIn={isLoggedIn}
+                /> */}
             </div>
         </div>
     )
