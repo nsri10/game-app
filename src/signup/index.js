@@ -5,6 +5,8 @@ import "./signup.css";
 import { Link } from "react-router-dom";
 
 function Signup() {
+  const [error, setError] = useState("");
+
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -12,8 +14,12 @@ function Signup() {
   });
   const navigate = useNavigate();
   const signup = async () => {
-    await client.signup(credentials);
-    navigate("/home");
+    try {
+      await client.signup(credentials);
+      navigate("/home");
+    } catch (err) {
+      setError(err.response.data.message);
+    }
   };
   const handleUserTypeChange = (userType) => {
     setCredentials({ ...credentials, userType });
