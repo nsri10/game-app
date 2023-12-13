@@ -15,7 +15,7 @@ function Signin() {
   const navigate = useNavigate();
   const signin = async () => {
     await client.signin(credentials);
-    navigate("../profile");
+    navigate("/profile");
   };
   const handleUserTypeChange = (userType) => {
     setCredentials({ ...credentials, userType });

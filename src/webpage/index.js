@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router";
 
 import Details from "../details";
 import Profile from "../profile";
+import ProfileEditor from "../profile/edit_profile";
 import NavigationBar from "../nav";
 import Signup from "../signup";
 import Signin from "../signin";
@@ -24,7 +25,13 @@ function Webpage() {
           <Routes>
             <Route path="/" element={<Navigate to="/details/" />} />
             <Route path="/details/*" element={<Details />} />
+<<<<<<< Updated upstream
             <Route path="/profile/*" element={<Profile />} />
+=======
+            <Route path="/profile/" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/profile/edit_profile/:id" element={<ProfileEditor />} />
+>>>>>>> Stashed changes
             <Route path="/signup/*" element={<Signup />} />
             <Route path="/signin/*" element={<Signup />} />
           </Routes>
