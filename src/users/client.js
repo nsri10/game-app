@@ -1,9 +1,6 @@
 import axios from "axios";
 
-<<<<<<< Updated upstream
 export const USERS_API = process.env.REACT_APP_BASE_API_URL;
-=======
-export const USERS_API = "http://localhost:4000/api/users"; // TODO: replace with env var
 export const createUser = async (user) => {
     const response = await axios.post(`${USERS_API}`, user);
     return response.data;
@@ -32,7 +29,6 @@ export const signout = async () => {
     const response = await axios.post(`${USERS_API}/signout`);
     return response.data;
 };  
->>>>>>> Stashed changes
 export const account = async () => {
   const response = await axios.post(`${USERS_API}/account`);
   return response.data;
