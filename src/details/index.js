@@ -10,16 +10,15 @@ import WriteReview from "./writeReview";
 function Details() {
     const { gameId } = useParams();
     const [game, setGame] = useState({});
-    const [updates, setUpdates] = useState({});
+    const [reviews, setReviews] = useState([]);
 
-    const getUpdates = async () => {
-        const update = await client.findAllUpdates('400');
-        setUpdates(update);
-        console.log(update);
+    const getReviews = async () => {
+        const review = await client.findReviewById(100);
+        setReviews(review);
     };
 
     useEffect(() => {
-        getUpdates();
+        getReviews();
     }, []);
 
     return (
@@ -42,22 +41,29 @@ function Details() {
                     Being a pirate is alright to be
                     Do what you want 'cause a pirate is free
                     You are a pirate!
-
                 </p>
             </div>
             <hr />
 
             <div className="row margin8ps">
                 <h1>Updates</h1>
-                {/*updates.map((update, index) => (
-                        <Link
-                            key={index}
-                            to={`/${link}`}
-                            className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
-                            <FontAwesomeIcon icon={icons[index]} className="me-2" />
-                            {link.toUpperCase()}
-                        </Link>
-                    ))*/}
+
+                {
+
+                /*updates.map((update, index) => (
+                <span key={index} className="list-group-item navbar-item-active">
+                    {update.desc}
+                </span>
+                    
+                <Link
+                    key={index}
+                    to={`/${link}`}
+                    className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
+                    <FontAwesomeIcon icon={icons[index]} className="me-2" />
+                    {link.toUpperCase()}
+                </Link>
+                
+                )*/}
 
             </div>
             <hr />
@@ -69,24 +75,20 @@ function Details() {
                 <h1>Reviews</h1>
 
                 <div className="list-group" style={{ marginLeft: 25 }}>
-                    <div className="list-group-item review">
-                        <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" />
-                        <div className="review_details">
-                            <span className="review_title">Review Title</span><br />
-                            <span className="review_date">Posted on 0/00/00</span><br />
-                            <span className="review_desc">review review review</span>
+                    {reviews.map((review, index) => (
+                        <div key={index} className="list-group-item review">
+                            <div style={{ display: "inline-block", width: "fit-content" }}>
+                                <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" /><br />
+                                <span>@{review.user}</span>
+                            </div>
+                            <div className="review_details">
+                                <span className="review_title">{review.title}</span><br />
+                                <span className="review_date">Posted on {review.date}</span><br />
+                                <span className="review_desc">{review.desc}</span>
 
+                            </div>
                         </div>
-                    </div>
-                    {/*reviews.map((review, index) => (
-                        <Link
-                            key={index}
-                            to={`/${link}`}
-                            className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
-                            <FontAwesomeIcon icon={icons[index]} className="me-2" />
-                            {link.toUpperCase()}
-                        </Link>
-                    ))*/}
+                    ))}
                 </div>
             </div>
 

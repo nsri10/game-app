@@ -4,7 +4,6 @@ import Details from "../details";
 import Profile from "../profile";
 import NavigationBar from "../nav";
 import Signup from "../signup";
-import Signin from "../signin";
 
 import "./index.css";
 
