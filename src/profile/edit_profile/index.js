@@ -14,7 +14,7 @@ function ProfileEditor() {
     }; 
     const save = async () => {
         await client.updateUser(account);
-        navigate(`/profile/${id}`);
+        navigate("/profile");
     };       
     useEffect(() => {
         findUserById(id);

@@ -6,10 +6,9 @@ import "./profile.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-/*
 function ProfileStatus({ account, id, isLoggedIn }) {
-    console.log(isLoggedIn);
-    console.log(account);
+    console.log(`IsLoggedIn: ${isLoggedIn}`);
+    console.log(`account: ${account}`);
     if (id) {
         return (
             <div>
@@ -32,12 +31,12 @@ function ProfileStatus({ account, id, isLoggedIn }) {
                         </p>
                     </div>
                     )}
+                    <Link to={`/profile/edit_profile/${account._id}`}>
+                        <button className="btn btn-secondary edit-data mt-0 ms-4">
+                            Edit personal data
+                        </button>
+                    </Link>
                 </div>
-                <Link to={`/profile/edit_profile/${id}`}>
-                    <button className="btn btn-secondary edit-data mt-3 ms-3">
-                        Edit personal data
-                    </button>
-                </Link>
             </div>
         );
     } else {
@@ -46,7 +45,6 @@ function ProfileStatus({ account, id, isLoggedIn }) {
         );
     }
 }
-*/
 
 function Profile() {
     const { id } = useParams();
@@ -66,30 +64,16 @@ function Profile() {
             fetchAccount();
         }
     }, []);
+    const isLoggedIn = account != null;
     return (
         <div className="profile mt-5 ms-5">
             <div className="d-flex mb-5">
                 <FontAwesomeIcon icon={faUserCircle} className="profile-icon mb-5 ms-2 me-5"/>
-                <div className="me-5">
-                    {account && (
-                    <div>
-                        <h1>{account.username}</h1>
-                        <p>
-                        Email: {account.email}<br />
-                        </p>
-                    </div>
-                    )}
-                </div>
-                <Link to={`/profile/edit_profile/${id}`}>
-                    <button className="btn btn-secondary edit-data mt-3 ms-3">
-                        Edit personal data
-                    </button>
-                </Link>
-                {/* <ProfileStatus
+                {<ProfileStatus
                     account={account}
                     id={id}
                     isLoggedIn={isLoggedIn}
-                /> */}
+                />}
             </div>
         </div>
     )
