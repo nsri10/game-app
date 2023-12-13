@@ -4,9 +4,14 @@
     padding: 20px;
     width: 200px;
     height: 15px;
-    margin:25px;
+    margin: 25px;
+    margin-right: 10px;
     flex-direction: row;
     width: 50%;
+}
+
+.btn-circle {
+    border-radius: 80%;
 }
 
 .detail-page {

@@ -1,5 +1,6 @@
 .result {
     background-color: #262a2c;
+    border: 0px;
 }
 
 .game_result {
@@ -9,4 +10,16 @@
 
 h2 {
     color: white;
+    margin: 25px;
+}
+
+h3 {
+    color: white;
+    margin: 25px;
+}
+
+hr {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
 }
