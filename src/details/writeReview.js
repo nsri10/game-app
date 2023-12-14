@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 
 import * as client from "./client.js";
 
-function WriteReview({ refresh, setRefresh , getReviews}) {
+function WriteReview({ getReviews }) {
 
     const { gameID } = useParams();
     const [review, setReview] = useState({
@@ -47,7 +47,7 @@ function WriteReview({ refresh, setRefresh , getReviews}) {
     };
 
     return (
-        <div style={{ marginBottom: "50px" }} key={refresh}>
+        <div style={{ marginBottom: "50px" }}>
             <h1>Write a Review</h1>
 
             <div style={{ alignItems: "center", display: "flex" }}>
