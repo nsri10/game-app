@@ -50,7 +50,7 @@ function Signin() {
 
             {/* Username and password */}
             <label htmlFor="username" className="form-label label-style">
-              User Name
+              Username
             </label>
             <input
               className="form-control mb-2"
@@ -79,7 +79,7 @@ function Signin() {
               <label className="form-label label-style">
                 Select your identity:
               </label>
-              <p class="subheader2">I am a...</p>
+              <p className="subheader2">I am a...</p>
               <div className="form-check">
                 <input
                   type="radio"

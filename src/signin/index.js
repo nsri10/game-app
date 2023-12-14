@@ -8,12 +8,14 @@ function Signin() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    userType: "gamer", // Default to "gamer"
+    email: "",
+    dob: "2000-01-01",
+    userType: "GAMER", // Default to "gamer"
   });
   const navigate = useNavigate();
   const signin = async () => {
     await client.signin(credentials);
-    navigate("/project/account");
+    navigate("/profile");
   };
   const handleUserTypeChange = (userType) => {
     setCredentials({ ...credentials, userType });
@@ -50,7 +52,7 @@ function Signin() {
             </p>
             <br />
             <label htmlFor="username" className="form-label label-style">
-              User Name
+              Username
             </label>
             <input
               className="form-control mb-2"
