@@ -26,6 +26,7 @@ function Search() {
             return;
         }
         const gotGames = await client.findAllGames();
+        console.log(gotGames);
 
         setGames(gotGames);
     };
@@ -40,8 +41,8 @@ function Search() {
             }
             setGames(gotGames);
             console.log(searchString);
-        };
-        */
+        };*/
+        
 
     useEffect(() => {
         getGames();
