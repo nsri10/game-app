@@ -59,9 +59,6 @@ function Signin() {
             <label htmlFor="username" className="form-label label-style">
               Username
             </label>
-            {error && (
-              <div className="alert alert-danger"> {error.message}</div>
-            )}
             <input
               className="form-control mb-2"
               value={credentials.username}
@@ -82,6 +79,9 @@ function Signin() {
               }
             />
             <br />
+            {error && (
+              <div className="alert alert-danger"> {error.message}</div>
+            )}
             <button className="purple-button" onClick={signin}>
               Login
             </button>
