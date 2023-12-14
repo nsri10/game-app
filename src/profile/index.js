@@ -5,6 +5,7 @@ import ProfilePicture from "./picture";
 import Username from "./username";
 import About from "./about";
 import Favorites from "./favorites";
+import Following from "./following";
 import "./profile.css";
 
 function ConditionalProfile({ account, username }) {
@@ -25,7 +26,14 @@ function ConditionalProfile({ account, username }) {
                             <About bio={account.bio} />
                         </div>
                     </div>
-                    <Favorites account={account}/>
+                    <div className="d-flex">
+                        <Favorites 
+                            favGame={account.favGame}
+                        />
+                        <Following 
+                            following={account.following}
+                        />
+                    </div>
                 </div>
                 )}
             </div>
@@ -38,7 +46,7 @@ function ConditionalProfile({ account, username }) {
                     <div className="d-flex mb-5">
                         <div className="d-flex">
                             {<ProfilePicture
-                                pfp={"ying_pfp.jpeg"}
+                                pfp={account.pfp}
                             />}
                             <div>
                                 <Username 
@@ -57,7 +65,14 @@ function ConditionalProfile({ account, username }) {
                             </button>
                         </Link>
                     </div>
-                    <Favorites account={account}/>
+                    <div className="d-flex">
+                        <Favorites 
+                            favGame={account.favGame}
+                        />
+                        <Following 
+                            following={account.following}
+                        />
+                    </div>
                 </div>
                 )}
             </div>
