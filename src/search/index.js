@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as client from "./client";
 
-import "./search.css"
+import "./search.css";
 import GameImg from "./img";
 
 function Search() {
@@ -25,13 +25,14 @@ function Search() {
     const gotUsers = await client.findAllUsers();
 
     if (searchString) {
-      const searchUsers = gotUsers.filter((r) => r.username.includes(searchString));
+      const searchUsers = gotUsers.filter((r) =>
+        r.username.includes(searchString)
+      );
       setUsers(searchUsers);
       return;
     }
     setUsers(gotUsers);
   };
-
 
   useEffect(() => {
     getGames();
@@ -50,10 +51,12 @@ function Search() {
             <Link
               key={index}
               to={`/details/${game.id}`}
-              className={"list-group-item result"}>
+              className={"list-group-item result"}
+            >
               <div key={index} className="game_result">
-                <GameImg gameId={game.id} /><br />
-                <h2>{game.name}</h2>
+                <GameImg gameId={game.id} />
+                <br />
+                <h2 className="hover">{game.name}</h2>
               </div>
               <hr />
             </Link>

@@ -35,6 +35,10 @@
   transition: background-color 0.3s ease;
 }
 
+.gameButton:hover {
+  background-color: aac4ff;
+}
+
 .gameTitle {
   color: white;
   display: inline;
