@@ -4,10 +4,23 @@
 }
 
 .profile-icon {
-    font-size: 170px;
+    font-size: 200px;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.about-header {
+    font-weight: 600;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.785);
 }
 
 .edit-data {
     padding-top: 7px;
     padding-left: 10px;
+    margin-top: 15%;
 }
