@@ -4,20 +4,28 @@ import { useNavigate } from "react-router-dom";
 import "./signup.css";
 import { Link } from "react-router-dom";
 
-function Signin() {
+function Signup() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    userType: "gamer", // Default to "gamer"
+    userType: "GAMER", // Default to "gamer"
   });
   const navigate = useNavigate();
-  const signin = async () => {
-    await client.signin(credentials);
-    navigate("/project/account");
-  };
+
   const handleUserTypeChange = (userType) => {
     setCredentials({ ...credentials, userType });
   };
+
+  const signup = async () => {
+    try {
+      const user = await client.signup(credentials);
+      navigate("/profile");
+      console.log(user);
+    } catch (error) {
+      setError(error);
+    }
+  };
+  const [error, setError] = useState("");
 
   return (
     // boilerplate code for the left container
@@ -46,12 +54,18 @@ function Signin() {
 
         <div className="col-md-6">
           <div className="p-5 mt-3">
-            <p className="bold-white subheader">Sign Up</p>
+            <div className="bold-white subheader">Sign Up</div>
+            <br />
+            <br />
 
             {/* Username and password */}
             <label htmlFor="username" className="form-label label-style">
               Username
             </label>
+            {error && (
+              <div className="alert alert-danger"> {error.message}</div>
+            )}
+
             <input
               className="form-control mb-2"
               value={credentials.username}
@@ -79,7 +93,7 @@ function Signin() {
               <label className="form-label label-style">
                 Select your identity:
               </label>
-              <p className="subheader2">I am a...</p>
+              <div className="subheader2">I am a...</div>
               <div className="form-check">
                 <input
                   type="radio"
@@ -99,37 +113,38 @@ function Signin() {
               <div className="form-check">
                 <input
                   type="radio"
-                  id="developer"
+                  id="admin"
                   className="form-check-input"
                   value="developer"
-                  checked={credentials.userType === "developer"}
-                  onChange={() => handleUserTypeChange("developer")}
+                  checked={credentials.userType === "admin"}
+                  onChange={() => handleUserTypeChange("admin")}
                 />
                 <label
-                  htmlFor="developer"
+                  htmlFor="admin"
                   className="form-check-label label-style-radio"
                 >
-                  Developer
+                  Administrator
                 </label>
               </div>
             </div>
 
             <br />
-            <button className="purple-button" onClick={signin}>
+            <button className="purple-button" onClick={signup}>
               Create Account
             </button>
             <br />
             <br />
-            <p className="h7">
-              Already a user?{" "}
+            <div className="h7">
+              Already a user?
               <Link to="/signin" className="blue-bold-text">
+                {" "}
                 Login.
               </Link>
               <br />
               <Link to="/details" className="blue-bold-text">
                 Continue without an account.
               </Link>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -137,4 +152,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;
