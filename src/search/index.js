@@ -21,6 +21,19 @@ function Search() {
         setGames(gotGames);
         console.log(searchString);
     };
+/*
+    const getUsers = async () => {
+        const gotUsers = await client.findAllGames();
+
+        if (searchString) {
+            const searchGames = gotGames.filter((r) => r.title.includes(searchString));
+            setGames(searchGames);
+            return;
+        }
+        setGames(gotGames);
+        console.log(searchString);
+    };
+    */
 
     useEffect(() => {
         getGames();
@@ -35,11 +48,11 @@ function Search() {
                     {games.map((game, index) => (
                         <Link
                             key={index}
-                            to={`/details/${game.gameID}`}
+                            to={`/details/${game.id}`}
                             className={"list-group-item result"}>
                             <div key={index} className="game_result">
                                 <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" /><br />
-                                <h2>{game.title}</h2>
+                                <h2>{game.name}</h2>
                             </div>
                             <hr />
                         </Link>
