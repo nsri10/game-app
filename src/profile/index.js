@@ -8,55 +8,8 @@ import Favorites from "./favorites";
 import Following from "./following";
 import "./profile.css";
 
-function Follow({ account, username }) {  
-    const follow = async () => {
-        await client.updateUser(account.following); // TODO
-    };
-    return (
-        <div>
-            {account && (
-            <button onClick={follow} className="btn btn-secondary edit-data ms-4">
-                Follow
-            </button>
-            )}
-        </div>
-    );
-}
-
-function ConditionalProfile({ account, username }) {
-    if (username) {
-        return (
-            <div className="d-flex">
-                {account && (
-                <div>
-                    <div className="d-flex mb-5">
-                        <div className="d-flex">
-                            {<ProfilePicture
-                                pfp={account.pfp}
-                            />}
-                            <div>
-                                <Username 
-                                    username={account.username} 
-                                    role={account.role}
-                                />
-                                <About bio={account.bio} />
-                            </div>
-                        </div>
-                        <Follow account={account} />
-                    </div>
-                    <div className="d-flex">
-                        <Favorites 
-                            favGame={account.favGame}
-                        />
-                        <Following 
-                            following={account.following}
-                        />
-                    </div>
-                </div>
-                )}
-            </div>
-        );
-    } else if (account) {
+function ConditionalProfile({ account }) {
+    if (account) {
         return (
             <div className="d-flex">
                 {account && (
@@ -108,29 +61,19 @@ function ConditionalProfile({ account, username }) {
 }
 
 function Profile() {
-    const { username } = useParams();
     const [account, setAccount] = useState(null);
-    const findUserByUsername = async (username) => {
-        const user = await client.findUserByUsername(username);
-        setAccount(user);
-    };    
     const fetchAccount = async () => {
         const account = await client.account();
         setAccount(account);
     };
     useEffect(() => {
-        if (username) {
-            findUserByUsername(username);
-        } else {
-            fetchAccount();
-        }
+        fetchAccount();
     }, []);
     return (
         <div className="profile mt-5 ms-5">
             <div className="d-flex mb-5">
                 {<ConditionalProfile
                     account={account}
-                    username={username}
                 />}
             </div>
         </div>

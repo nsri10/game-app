@@ -18,7 +18,7 @@ function LoginComponent({ account }) {
     return (
       <div className="ms-3">
         <br />
-        <h6 className="ms-3">
+        <h6 className="ms-">
           Sign in or create an account to favorite games, participate in
           discussions, and get exclusive news!
         </h6>
