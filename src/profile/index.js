@@ -1,6 +1,6 @@
 import * as client from "../users/client";
-import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import ProfilePicture from "./picture";
 import Username from "./username";
 import About from "./about";
@@ -67,10 +67,9 @@ function Profile() {
     };
     useEffect(() => {
         fetchAccount();
-        console.log(account);
-    }, []);
+    },);
     return (
-        <div className="profile mt-5 ms-5">
+        <div key="profile" className="profile mt-5 ms-5">
             <div className="d-flex mb-5">
                 {<ConditionalProfile
                     account={account}
