@@ -11,9 +11,7 @@ import Home from "../home";
 import "./index.css";
 import Search from "../search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -26,7 +24,7 @@ function Webpage() {
       <NavigationBar />
 
       <div style={{ width: "100%" }}>
-        <div className="row">
+        <div className="row moveRight">
           <div>
             <input
               id="searchBar"
@@ -35,12 +33,13 @@ function Webpage() {
               placeholder="Search for Games"
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Link className="btn btn-circle btn-primary"
+            <Link
+              className="btn btn-circle btn-primary"
               to={`/search/${search}`}
-              onClick={() =>setRefresh(!refresh)}>
+              onClick={() => setRefresh(!refresh)}
+            >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Link>
-
           </div>
         </div>
 
@@ -48,13 +47,19 @@ function Webpage() {
           <Routes>
             <Route path="/" element={<Navigate to="/home/" />} />
             <Route path="/home/*" element={<Home />} />
-            <Route path="/search/:searchString" element={<Search key={refresh}/>} />
+            <Route
+              path="/search/:searchString"
+              element={<Search key={refresh} />}
+            />
             <Route path="/search/*" element={<Search />} />
             <Route path="/details/" element={<Navigate to="/search/" />} />
             <Route path="/details/:gameID" element={<Details />} />
-            <Route path="/profile/" element={<Profile key={refresh}/>} />
+            <Route path="/profile/" element={<Profile key={refresh} />} />
             <Route path="/profile/:username" element={<OtherProfile />} />
-            <Route path="/profile/edit_profile/:username" element={<ProfileEditor />} />
+            <Route
+              path="/profile/edit_profile/:username"
+              element={<ProfileEditor />}
+            />
             <Route path="/signup/*" element={<Signup />} />
             <Route path="/signin/*" element={<Signup />} />
           </Routes>

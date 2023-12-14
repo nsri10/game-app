@@ -1,19 +1,23 @@
 .search-bar {
-    border-radius: 25px;
-    background-color: white;
-    padding: 20px;
-    width: 200px;
-    height: 15px;
-    margin: 25px;
-    margin-right: 10px;
-    flex-direction: row;
-    width: 50%;
+  border-radius: 25px;
+  background-color: white;
+  padding: 20px;
+  width: 200px;
+  height: 15px;
+  margin: 25px;
+  margin-right: 10px;
+  flex-direction: row;
+  width: 50%;
 }
 
 .btn-circle {
-    border-radius: 80%;
+  border-radius: 80%;
 }
 
 .detail-page {
-    background-color: #262a2c;
+  background-color: #262a2c;
+}
+
+.moveRight {
+  padding-left: 30px;
 }
