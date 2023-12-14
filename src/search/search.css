@@ -1,0 +1,30 @@
+.result {
+    background-color: #262a2c;
+    border: 0px;
+}
+
+.game_result {
+    background-color: #262a2c;
+    width: fit-content;
+}
+
+.game_img {
+    max-width: 720px;
+    max-height: 300px;
+}
+
+h2 {
+    color: white;
+    margin: 25px;
+}
+
+h3 {
+    color: white;
+    margin: 25px;
+}
+
+hr {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}

@@ -1,11 +1,107 @@
-.search-bar {
-    border-radius: 25px;
-    background-color: white;
-    padding: 20px;
-    width: 200px;
-    height: 15px;
-}
+
 
 .detail-page {
     background-color: #262a2c;
+}
+
+.center_game_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 450px;
+}
+
+.gameImgs {
+    display: block;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 900px;
+    max-width: 1400px;
+    background-color: black;
+}
+
+.gameButton {
+    display: inline;
+    width: 15%;
+    margin: 5px;
+}
+
+.gameTitle {
+    color: white;
+    display: inline;
+    width: 50%;
+    margin: 10px;
+}
+
+.review {
+    background-color: #262a2c;
+    vertical-align: top;
+    width: fit-content;
+    border: 0;
+}
+
+.review_pfp {
+    display: inline;
+    vertical-align: top;
+}
+
+.review_details {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.review_title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.review_desc {
+    font-size: 20px;
+}
+
+.review_date {
+    font-style: italic;
+}
+
+.margin8ps {
+    margin-left: 8%;
+}
+
+.input-review-title {
+    border-radius: 25px;
+    background-color: white;
+    padding: 20px;
+    height: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.detail_hr {
+    color: white;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    color: white;
+    margin: 25px;
+}
+
+p {
+    color: white;
+    margin: 25px;
+}
+
+span {
+    color: white;
+    margin: 25px;
+}
+
+hr {
+    color: white;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
 }

@@ -1,0 +1,83 @@
+.input-style {
+  width: "300px";
+  border-radius: "10px";
+  background-color: "white";
+  padding: "10px";
+  margin: "5px 0";
+  color: "black";
+}
+
+.title {
+  color: #aac4ff;
+  font-size: 1000%;
+  font-weight: bold;
+  padding-left: 5%;
+
+  line-height: 0.9;
+}
+
+.tagline {
+  font-size: 1.25em;
+  line-height: 1.2;
+  padding-left: 5%;
+
+  color: #ffffff;
+}
+
+.onboarding {
+  max-width: 66%;
+  height: auto;
+  padding-left: 8%;
+  display: block;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 950px) {
+  .title {
+    font-size: 600%; /* Adjust font size for screens up to 768px wide */
+    line-height: 1.1;
+  }
+
+  .tagline {
+    font-size: 100%; /* Adjust font size for screens up to 768px wide */
+    line-height: 1.4;
+  }
+
+  .onboarding {
+    max-width: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 400%; /* Adjust font size for screens up to 480px wide */
+    line-height: 1.3;
+  }
+
+  .tagline {
+    font-size: 80%; /* Adjust font size for screens up to 480px wide */
+    line-height: 1.6;
+  }
+}
+
+.bold-white {
+  color: #ffff;
+}
+
+.subheader {
+  color: white;
+  font-size: 500%;
+  font-weight: bold;
+}
+
+.label-style {
+  color: white;
+  font-size: 150%;
+  font-family: "helvetica";
+}
+
+.subheader2 {
+  font-size: 120%;
+  color: white;
+  font-family: "helvetica";
+}

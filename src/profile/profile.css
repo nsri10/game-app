@@ -1,8 +1,47 @@
-.profile-text {
+.profile {
     color: white;
+    font-family: "helvetica";
 }
 
 .profile-icon {
-    font-size: 100px;
+    font-size: 200px;
 }
 
+.profile-picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.role {
+    font-weight: 600;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.785);
+    margin-top: 10%;
+    margin-left: 0;
+}
+
+.about-header {
+    font-weight: 600;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.785);
+}
+
+.edit-data {
+    padding-top: 7px;
+    padding-left: 10px;
+    margin-top: 15%;
+}
+
+.following {
+    list-style-type: square;
+}
+
+.following-text {
+    color: white;
+    font-size: large;
+}
+
+.following-text:hover {
+    color: #aac4ff;
+}
