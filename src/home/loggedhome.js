@@ -1,7 +1,6 @@
 import "./home.css";
 import FeaturedGames from "./featgame";
 import LatestReleases from "./latestrelease";
-import TrendingDiscussions from "./trendingdisc";
 import FavoriteGames from "./favgames";
 
 function LoggedHome() {
@@ -18,8 +17,6 @@ function LoggedHome() {
                 <FavoriteGames />
                 <h1 className="home-text">Latest Releases <span className="home-text4">View all games.</span> </h1> 
                 <LatestReleases />
-                <h1 className="home-text">Trending Discussions <span className="home-text4">View all discussions.</span></h1>
-                <TrendingDiscussions />
                 
             </div>
         </div>
