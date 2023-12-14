@@ -16,21 +16,15 @@ function Follow({ username }) {
     };
     useEffect(() => {
         fetchAccount();
-        console.log("logged in");
-        console.log(account);
     }, []);
     const addToFollowing = () => {
         const addFollower = [...account.following];
-        console.log(addFollower);
         addFollower.push(username);
-        console.log(addFollower);
         setAccount({ ...account, following: addFollower })
     }
     const removeFromFollowing = () => {
         const followList = [...account.following];
-        console.log(followList);
         const removeFollower = followList.filter(name => name !== username);
-        console.log(removeFollower);
         setAccount({ ...account, following: removeFollower })
     }
     const follow = async () => {
@@ -66,8 +60,6 @@ function OtherProfile() {
     };    
     useEffect(() => {
         findUserByUsername(username);
-        console.log("displayed");
-        console.log(account);
     }, []);
     return (
         <div className="profile mt-5 ms-5">

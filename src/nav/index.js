@@ -44,7 +44,6 @@ function LoggedInSignout({ account }) {
     navigate("/signin");
   };
 
-  console.log(account);
   if (account) {
     return (
       <div className="ms-2">
