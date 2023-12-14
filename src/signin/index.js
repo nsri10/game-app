@@ -30,7 +30,7 @@ function Signin() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-6">
-          <div className="p-5 mt-3">
+          <div className="p-4 mt-3">
             <p className="title">
               Game <br />
               List

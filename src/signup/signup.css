@@ -11,23 +11,28 @@
   color: #aac4ff;
   font-size: 1000%;
   font-weight: bold;
+  padding-left: 5%;
+
   line-height: 0.9;
 }
 
 .tagline {
-  font-size: 1.5em;
+  font-size: 1.25em;
   line-height: 1.2;
+  padding-left: 5%;
+
   color: #ffffff;
 }
 
 .onboarding {
-  max-width: 75%;
+  max-width: 66%;
   height: auto;
+  padding-left: 8%;
   display: block;
 }
 
 /* Responsive styles for smaller screens */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   .title {
     font-size: 600%; /* Adjust font size for screens up to 768px wide */
     line-height: 1.1;
