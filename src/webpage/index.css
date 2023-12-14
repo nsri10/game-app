@@ -12,6 +12,11 @@
 
 .btn-circle {
   border-radius: 80%;
+  background-color: #6243f5;
+}
+
+.btn-circle:hover {
+  background-color: #aac4ff;
 }
 
 .detail-page {

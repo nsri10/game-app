@@ -36,3 +36,8 @@ hr {
   width: auto;
   padding-left: 30px;
 }
+
+.hover:hover {
+  color: #6243f5;
+  border-color: #aac4ff;
+}
