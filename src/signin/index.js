@@ -14,12 +14,16 @@ function Signin() {
   });
   const navigate = useNavigate();
   const signin = async () => {
-    await client.signin(credentials);
-    navigate("/profile");
+    try {
+      const user = await client.signin(credentials);
+      navigate("/profile");
+
+      console.log(user);
+    } catch (error) {
+      setError(error);
+    }
   };
-  const handleUserTypeChange = (userType) => {
-    setCredentials({ ...credentials, userType });
-  };
+  const [error, setError] = useState("");
 
   return (
     // boilerplate code for the left container
@@ -46,14 +50,18 @@ function Signin() {
 
         <div className="col-md-6">
           <div className="p-5 mt-3">
-            <p className="bold-white subheader">Sign In</p>
-            <p className="subheader2">
+            <div className="bold-white subheader">Sign In</div>
+            <div className="subheader2">
               Welcome back! Please login to your account.
-            </p>
+            </div>
+            <br />
             <br />
             <label htmlFor="username" className="form-label label-style">
               Username
             </label>
+            {error && (
+              <div className="alert alert-danger"> {error.message}</div>
+            )}
             <input
               className="form-control mb-2"
               value={credentials.username}
@@ -79,16 +87,16 @@ function Signin() {
             </button>
             <br />
             <br /> <br />
-            <p className="h7">
-              New user?{" "}
+            <div className="h7">
+              New user?
               <Link to="/signup" className="blue-bold-text">
-                Create an account.
+                {""} Create an account.
               </Link>
               <br />
               <Link to="/details" className="blue-bold-text">
                 Continue without logging in.
               </Link>
-            </p>
+            </div>
             <br />
           </div>
         </div>

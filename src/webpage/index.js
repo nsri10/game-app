@@ -50,8 +50,8 @@ function Webpage() {
             <Route path="/details/" element={<Navigate to="/search/" />} />
             <Route path="/details/:gameID" element={<Details />} />
             <Route path="/profile/" element={<Profile />} />
-            <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/profile/edit_profile/:id" element={<ProfileEditor />} />
+            <Route path="/profile/:username" element={<Profile />} />
+            <Route path="/profile/edit_profile/:username" element={<ProfileEditor />} />
             <Route path="/signup/*" element={<Signup />} />
             <Route path="/signin/*" element={<Signup />} />
           </Routes>
@@ -60,5 +60,4 @@ function Webpage() {
     </div>
   );
 }
-
 export default Webpage;
