@@ -5,6 +5,7 @@ import Profile from "../profile";
 import ProfileEditor from "../profile/edit_profile";
 import NavigationBar from "../nav";
 import Signup from "../signup";
+import Home from "../home";
 
 import "./index.css";
 import Search from "../search";
@@ -23,7 +24,8 @@ function Webpage() {
         </div>
         <div className="row">
           <Routes>
-            <Route path="/" element={<Navigate to="/details/100" />} />
+            <Route path="/" element={<Navigate to="/home/" />} />
+            <Route path="/home/*" element={<Home />} />
             <Route path="/search/*" element={<Search />} />
             <Route path="/details/" element={<Navigate to="/search/"/>} />
             <Route path="/details/:gameID" element={<Details />} />
