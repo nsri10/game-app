@@ -33,15 +33,15 @@
     margin-top: 20%;
 }
 
-.following {
+.user-list {
     list-style-type: square;
 }
 
-.following-text {
+.user-list-text {
     color: white;
     font-size: large;
 }
 
-.following-text:hover {
+.user-list-text:hover {
     color: #aac4ff;
 }
