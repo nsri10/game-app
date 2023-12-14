@@ -10,11 +10,6 @@ import "./profile.css";
 
 function ConditionalProfile({ account }) {
     const navigate = useNavigate();
-    useEffect(() => {
-        if (!account) {
-            navigate("/signin");
-        }
-    }, []);
     if (account) {
         return (
             <div className="d-flex">
@@ -52,6 +47,13 @@ function ConditionalProfile({ account }) {
                     </div>
                 </div>
                 )}
+            </div>
+        );
+    } else {
+        return (
+            <div className="ms-3">
+                <h4 className="mb-0">You are not logged in.</h4>
+                <button onClick={() => navigate("/signin")} className="btn btn-secondary edit-data mt-2">Go to signin page</button>
             </div>
         );
     }

@@ -16,6 +16,7 @@ function Follow({ username }) {
     };
     useEffect(() => {
         fetchAccount();
+        console.log(account);
     }, []);
     const addToFollowing = () => {
         const addFollower = [...account.following];
