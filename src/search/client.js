@@ -14,5 +14,17 @@ export const findAllGames = async () => {
 
 export const findGameById = async (id) => {
     const response = await request.get(`${GAMES_API}/${id}`);
+    console.log(`${GAMES_API}/${id}`);
+    return response.data;
+};
+
+export const findGameByName = async (search) => {
+    const response = await request.get(`${GAMES_API}/s/${search}`);
+    return response.data;
+};
+
+export const findGameImgById = async (id) => {
+    const response = await request.get(`${GAMES_API}/img/${id}`);
+    console.log(response.data);
     return response.data;
 };
