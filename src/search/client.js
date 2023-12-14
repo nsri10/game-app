@@ -27,7 +27,6 @@ export const findGameByName = async (search) => {
 
 export const findGameImgById = async (id) => {
     const response = await request.get(`${GAMES_API}/img/${id}`);
-    console.log(response.data);
     return response.data;
 };
 
@@ -50,6 +49,5 @@ export const findUserByName = async (search) => {
 
 export const findUserImgById = async (id) => {
     const response = await request.get(`${GAMES_API}/img/${id}`);
-    console.log(response.data);
     return response.data;
 };

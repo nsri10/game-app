@@ -3,21 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import * as client from "./client";
 
 import "./search.css"
+import GameImg from "./img";
 
 function Search() {
     const { searchString } = useParams();
     const [games, setGames] = useState([]);
     const [users, setUsers] = useState([]);
-    const [img, setImg] = useState({});
-    const promiseArray = [];
-
-    const getImgByGameId = async (gameId) => {
-        const gotImg = await client.findGameImgById(gameId);
-        promiseArray.push(gotImg);
-        setImg(gotImg)
-        return gotImg;
-    }
-
 
     const getGames = async () => {
         if (searchString) {
@@ -26,7 +17,6 @@ function Search() {
             return;
         }
         const gotGames = await client.findAllGames();
-        console.log(gotGames);
 
         setGames(gotGames);
     };
@@ -48,7 +38,7 @@ function Search() {
         getGames();
     }, []);
 
-    //  /imgs/placeholders/shoot.png ${getImgByGameId(game.id)}
+    //  /imgs/placeholders/shoot.png ${getImgByGameId(game.id)} https:${game.cover.url}
     return (
         <div className="row" key={searchString}>
             <h3>Results</h3>
@@ -61,7 +51,7 @@ function Search() {
                             to={`/details/${game.id}`}
                             className={"list-group-item result"}>
                             <div key={index} className="game_result">
-                                <img className="game_img" src={`/imgs/placeholders/shoot.png`} /><br />
+                                <GameImg gameId={game.id}/><br />
                                 <h2>{game.name}</h2>
                             </div>
                             <hr />
