@@ -33,5 +33,6 @@ export const signout = async () => {
 
 export const account = async () => {
   const response = await axios.post(`${USERS_API}/account`);
+  console.log(response.data);
   return response.data;
 };

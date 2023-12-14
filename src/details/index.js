@@ -2,28 +2,41 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import DetailCarousel from "./carousel";
 import * as client from "./client";
+import * as accountClient from "../users/client.js";
 
 import "./details.css";
 import WriteReview from "./writeReview";
+import FavBtn from "./favBtn.js";
 
 function Details() {
   const { gameID } = useParams();
+  const [account, setAccount] = useState({});
   const [game, setGame] = useState({});
   const [reviews, setReviews] = useState([]);
 
+  const getAccount = async () => {
+    const gotAccount = await accountClient.account();
+    setAccount(gotAccount);
+    console.log(gotAccount);
+  };
+
   const getReviews = async () => {
     const review = await client.findReviewByGameId(gameID); //100
-    console.log(review);
+    //console.log(review);
     setReviews(review);
   };
 
   const getGame = async () => {
     const gotGame = await client.findGameById(gameID); //100
-    console.log(gotGame);
+    //console.log(gotGame);
     setGame(gotGame);
+    console.log(account);
   };
 
+
+
   useEffect(() => {
+    getAccount();
     getReviews();
     getGame();
   }, []);
@@ -39,12 +52,7 @@ function Details() {
         >
           Purchase
         </button>
-        <button
-          style={{ marginRight: "25px" }}
-          className="btn btn-primary gameButton"
-        >
-          Favorite
-        </button>
+        <FavBtn account={account} setAccount={setAccount} gameID={gameID} />
       </div>
 
       <DetailCarousel />
@@ -57,7 +65,7 @@ function Details() {
 
       <div className="row margin8ps">
         {/* add condition here to check if logged in, otherwise write a review element available */}
-        <WriteReview getReviews={getReviews} />
+        <WriteReview getReviews={getReviews} account={account}/>
 
         <h1>Reviews</h1>
 

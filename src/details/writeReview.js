@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useParams } from "react-router";
 
 import * as client from "./client.js";
+import { Link } from "react-router-dom";
 
-function WriteReview({ getReviews }) {
+function WriteReview({ getReviews, account }) {
 
     const { gameID } = useParams();
     const [review, setReview] = useState({
@@ -46,34 +47,37 @@ function WriteReview({ getReviews }) {
 
     };
 
-    return (
-        <div style={{ marginBottom: "50px" }}>
-            <h1>Write a Review</h1>
+    if (account) {
+        return (
+            <div style={{ marginBottom: "50px" }}>
+                <h1>Write a Review</h1>
 
-            <div style={{ alignItems: "center", display: "flex" }}>
-                <div style={{ marginLeft: 25, display: "inline-block", width: "fit-content" }}>
-                    <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" /><br />
-                    <span>@username</span>
-                </div>
+                <div style={{ alignItems: "center", display: "flex" }}>
+                    <div style={{ marginLeft: 25, display: "inline-block", width: "fit-content" }}>
+                        <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" /><br />
+                        <span>@{account.username}</span>
+                    </div>
 
-                <div style={{ marginLeft: 25, display: "inline-block", width: "70%" }}>
-                    <input type="text" className="input-review-title" placeholder="Review Title"
-                        id="review-title-input"
-                        onChange={(e) => setReview({ ...review, title: e.target.value })} />
+                    <div style={{ marginLeft: 25, display: "inline-block", width: "70%" }}>
+                        <input type="text" className="input-review-title" placeholder="Review Title"
+                            id="review-title-input"
+                            onChange={(e) => setReview({ ...review, title: e.target.value })} />
 
-                    <textarea class="form-control" id="input-review-details" rows="3" placeholder="Description here"
-                        id="review-desc-input"
-                        onChange={(e) => setReview({ ...review, desc: e.target.value })}></textarea>
-                </div>
+                        <textarea class="form-control" id="input-review-details" rows="3" placeholder="Description here"
+                            id="review-desc-input"
+                            onChange={(e) => setReview({ ...review, desc: e.target.value })}></textarea>
+                    </div>
 
-                <div style={{ marginLeft: 25, display: "inline-block", width: "fit-content", verticalAlign: "middle" }}>
-                    <button style={{ marginBottom: "auto", marginTop: "auto" }} className="btn btn-primary"
-                        onClick={() => createReview()}>Create</button>
+                    <div style={{ marginLeft: 25, display: "inline-block", width: "fit-content", verticalAlign: "middle" }}>
+                        <button style={{ marginBottom: "auto", marginTop: "auto" }} className="btn btn-primary"
+                            onClick={() => createReview()}>Create</button>
+                    </div>
+
                 </div>
 
             </div>
+        );
+    };
 
-        </div>
-    );
 }
 export default WriteReview;
