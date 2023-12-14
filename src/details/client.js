@@ -19,8 +19,13 @@ export const findAllReviews = async () => {
     return response.data;
 };
 
-export const findReviewById = async (id) => {
-    const response = await request.get(`${REVIEWS_API}/${id}`); 
+export const findReviewByGameId = async (id) => {
+    const response = await request.get(`${REVIEWS_API}/gid/${id}`); 
+    return response.data;
+};
+
+export const findReviewByReviewId = async (id) => {
+    const response = await request.get(`${REVIEWS_API}/rid/${id}`); 
     return response.data;
 };
 
