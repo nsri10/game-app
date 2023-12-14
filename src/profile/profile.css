@@ -32,3 +32,16 @@
     padding-left: 10px;
     margin-top: 15%;
 }
+
+.following {
+    list-style-type: square;
+}
+
+.following-text {
+    color: white;
+    font-size: large;
+}
+
+.following-text:hover {
+    color: #aac4ff;
+}

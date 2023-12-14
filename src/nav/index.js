@@ -14,7 +14,6 @@ import "./nav.css";
 
 
 function LoginComponent({ account }) {
-  console.log(account);
   if (account == null) {
     return (
       <div>

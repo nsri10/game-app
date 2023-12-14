@@ -30,7 +30,7 @@ function Signin() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-6">
-          <div className="p-5 mt-3">
+          <div className="p-4 mt-3">
             <p className="title">
               Game <br />
               List
@@ -59,9 +59,6 @@ function Signin() {
             <label htmlFor="username" className="form-label label-style">
               Username
             </label>
-            {error && (
-              <div className="alert alert-danger"> {error.message}</div>
-            )}
             <input
               className="form-control mb-2"
               value={credentials.username}
@@ -82,6 +79,9 @@ function Signin() {
               }
             />
             <br />
+            {error && (
+              <div className="alert alert-danger"> {error.message}</div>
+            )}
             <button className="purple-button" onClick={signin}>
               Login
             </button>

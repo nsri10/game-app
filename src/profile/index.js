@@ -5,7 +5,23 @@ import ProfilePicture from "./picture";
 import Username from "./username";
 import About from "./about";
 import Favorites from "./favorites";
+import Following from "./following";
 import "./profile.css";
+
+function Follow({ account, username }) {  
+    const follow = async () => {
+        await client.updateUser(account.following); // TODO
+    };
+    return (
+        <div>
+            {account && (
+            <button onClick={follow} className="btn btn-secondary edit-data ms-4">
+                Follow
+            </button>
+            )}
+        </div>
+    );
+}
 
 function ConditionalProfile({ account, username }) {
     if (username) {
@@ -14,18 +30,28 @@ function ConditionalProfile({ account, username }) {
                 {account && (
                 <div>
                     <div className="d-flex mb-5">
-                        {<ProfilePicture
-                            pfp={account.pfp}
-                        />}
-                        <div>
-                            <Username 
-                                username={account.username} 
-                                role={account.role}
-                            />
-                            <About bio={account.bio} />
+                        <div className="d-flex">
+                            {<ProfilePicture
+                                pfp={account.pfp}
+                            />}
+                            <div>
+                                <Username 
+                                    username={account.username} 
+                                    role={account.role}
+                                />
+                                <About bio={account.bio} />
+                            </div>
                         </div>
+                        <Follow account={account} />
                     </div>
-                    <Favorites account={account}/>
+                    <div className="d-flex">
+                        <Favorites 
+                            favGame={account.favGame}
+                        />
+                        <Following 
+                            following={account.following}
+                        />
+                    </div>
                 </div>
                 )}
             </div>
@@ -38,7 +64,7 @@ function ConditionalProfile({ account, username }) {
                     <div className="d-flex mb-5">
                         <div className="d-flex">
                             {<ProfilePicture
-                                pfp={"ying_pfp.jpeg"}
+                                pfp={account.pfp}
                             />}
                             <div>
                                 <Username 
@@ -57,7 +83,14 @@ function ConditionalProfile({ account, username }) {
                             </button>
                         </Link>
                     </div>
-                    <Favorites account={account}/>
+                    <div className="d-flex">
+                        <Favorites 
+                            favGame={account.favGame}
+                        />
+                        <Following 
+                            following={account.following}
+                        />
+                    </div>
                 </div>
                 )}
             </div>
