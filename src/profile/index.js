@@ -1,6 +1,6 @@
 import * as client from "../users/client";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import ProfilePicture from "./picture";
 import Username from "./username";
 import About from "./about";
@@ -9,6 +9,12 @@ import Following from "./following";
 import "./profile.css";
 
 function ConditionalProfile({ account }) {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!account) {
+            navigate("/signin");
+        }
+    }, []);
     if (account) {
         return (
             <div className="d-flex">
@@ -48,15 +54,6 @@ function ConditionalProfile({ account }) {
                 )}
             </div>
         );
-    } else {
-        return (
-            <div className="d-flex">
-                {<ProfilePicture
-                        pfp={null}
-                />}
-                <h1>Anonymous User</h1>
-            </div>
-        );
     }
 }
 
@@ -68,6 +65,7 @@ function Profile() {
     };
     useEffect(() => {
         fetchAccount();
+        console.log(account);
     }, []);
     return (
         <div className="profile mt-5 ms-5">
