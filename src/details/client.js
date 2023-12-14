@@ -60,6 +60,7 @@ export const findAllGames = async () => {
 };
 
 export const findGameById = async (id) => {
-    const response = await request.get(`${GAMES_API}/${id}`); 
+    const response = await request.get(`${GAMES_API}/${id}`);
+    console.log(response);
     return response.data;
 };

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import DetailCarousel from "./carousel";
-import axios from "axios";
 import * as client from "./client";
 
 import "./details.css";
@@ -19,8 +18,8 @@ function Details() {
 
     const getGame = async () => {
         const gotGame = await client.findGameById(gameID); //100
+        console.log(gotGame);
         setGame(gotGame);
-        console.log(game);
     };
 
     useEffect(() => {
@@ -31,7 +30,7 @@ function Details() {
     return (
         <div>
             <div className="row">
-                <h1 className="gameTitle margin8ps">{game.title}</h1>
+                <h1 className="gameTitle margin8ps">{game.name}</h1>
 
                 <button style={{ marginLeft: "auto" }} className="btn btn-primary gameButton">Purchase</button>
                 <button style={{ marginRight: "25px" }} className="btn btn-primary gameButton">Favorite</button>
@@ -42,7 +41,7 @@ function Details() {
             <div className="row margin8ps">
                 <h1>About</h1>
                 <p>
-                    {game.desc}
+                    {game.summary}
                 </p>
             </div>
             <hr className="detail_hr" />
