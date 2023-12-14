@@ -11,8 +11,11 @@ function Details() {
     const [game, setGame] = useState({});
     const [reviews, setReviews] = useState([]);
 
+    const [refresh, setRefresh] = useState(true);
+
     const getReviews = async () => {
         const review = await client.findReviewByGameId(gameID); //100
+        console.log(review);
         setReviews(review);
     };
 
@@ -28,7 +31,7 @@ function Details() {
     }, []);
 
     return (
-        <div>
+        <div >
             <div className="row">
                 <h1 className="gameTitle margin8ps">{game.name}</h1>
 
@@ -48,7 +51,8 @@ function Details() {
 
             <div className="row margin8ps">
                 {/* add condition here to check if logged in, otherwise write a review element available */}
-                <WriteReview />
+                <h1>{`${refresh}`}</h1>
+                <WriteReview refresh={refresh} setRefresh={setRefresh} getReviews={getReviews}/>
 
                 <h1>Reviews</h1>
 

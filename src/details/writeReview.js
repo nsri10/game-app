@@ -3,7 +3,8 @@ import { useParams } from "react-router";
 
 import * as client from "./client.js";
 
-function WriteReview() {
+function WriteReview({ refresh, setRefresh , getReviews}) {
+
     const { gameID } = useParams();
     const [review, setReview] = useState({
         gameID: gameID,
@@ -21,6 +22,9 @@ function WriteReview() {
     });
 
     const createReview = async () => {
+        const inputReviewTitle = document.getElementById("review-title-input");
+        const inputReviewDesc = document.getElementById("review-desc-input");
+
         var curDate = new Date();
         var dd = String(curDate.getDate()).padStart(2, '0');
         var mm = String(curDate.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -29,15 +33,21 @@ function WriteReview() {
         curDate = mm + '/' + dd + '/' + yyyy;
         try {
             setReview({ ...review, date: curDate })
-            console.log(review);
             const newReview = await client.createReview(review);
+
         } catch (err) {
             console.log(err);
+            return;
         }
+
+        inputReviewTitle.value = "";
+        inputReviewDesc.value = "";
+        getReviews();
+
     };
 
     return (
-        <div style={{ marginBottom: "50px" }}>
+        <div style={{ marginBottom: "50px" }} key={refresh}>
             <h1>Write a Review</h1>
 
             <div style={{ alignItems: "center", display: "flex" }}>
@@ -48,9 +58,11 @@ function WriteReview() {
 
                 <div style={{ marginLeft: 25, display: "inline-block", width: "70%" }}>
                     <input type="text" className="input-review-title" placeholder="Review Title"
+                        id="review-title-input"
                         onChange={(e) => setReview({ ...review, title: e.target.value })} />
 
                     <textarea class="form-control" id="input-review-details" rows="3" placeholder="Description here"
+                        id="review-desc-input"
                         onChange={(e) => setReview({ ...review, desc: e.target.value })}></textarea>
                 </div>
 
