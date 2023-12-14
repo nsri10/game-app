@@ -93,7 +93,7 @@ function Signin() {
                 {""} Create an account.
               </Link>
               <br />
-              <Link to="/details" className="blue-bold-text">
+              <Link to="/home" className="blue-bold-text">
                 Continue without logging in.
               </Link>
             </div>

@@ -16,9 +16,9 @@ import "./nav.css";
 function LoginComponent({ account }) {
   if (account == null) {
     return (
-      <div>
+      <div className="ms-3">
         <br />
-        <h6>
+        <h6 className="ms-">
           Sign in or create an account to favorite games, participate in
           discussions, and get exclusive news!
         </h6>
@@ -48,7 +48,7 @@ function LoggedInSignout({ account }) {
   console.log(account);
   if (account) {
     return (
-      <div>
+      <div className="ms-2">
         <button className="signout-button" onClick={signout}>
           Signout
         </button>
