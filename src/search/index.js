@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as client from "./client";
 
-import "./index.css"
+import "./search.css"
 
 function Search() {
     const { searchString } = useParams();

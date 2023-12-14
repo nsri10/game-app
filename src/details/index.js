@@ -13,7 +13,7 @@ function Details() {
     const [reviews, setReviews] = useState([]);
 
     const getReviews = async () => {
-        const review = await client.findReviewById(gameID); //100
+        const review = await client.findReviewByGameId(gameID); //100
         setReviews(review);
     };
 
@@ -45,30 +45,7 @@ function Details() {
                     {game.desc}
                 </p>
             </div>
-            <hr />
-
-            <div className="row margin8ps">
-                <h1>Updates</h1>
-
-                {
-
-                /*updates.map((update, index) => (
-                <span key={index} className="list-group-item navbar-item-active">
-                    {update.desc}
-                </span>
-                    
-                <Link
-                    key={index}
-                    to={`/${link}`}
-                    className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
-                    <FontAwesomeIcon icon={icons[index]} className="me-2" />
-                    {link.toUpperCase()}
-                </Link>
-                
-                )*/}
-
-            </div>
-            <hr />
+            <hr className="detail_hr" />
 
             <div className="row margin8ps">
                 {/* add condition here to check if logged in, otherwise write a review element available */}
@@ -84,7 +61,7 @@ function Details() {
                                 <img className="review_pfp" src="/imgs/placeholders/674277730124300298.png" /><br />
                                 <span>@{review.user}</span>
                             </div>
-                            
+
                             <div className="review_details">
                                 <span className="review_title">{review.title}</span><br />
                                 <span className="review_date">Posted on {review.date}</span><br />
