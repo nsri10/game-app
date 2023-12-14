@@ -12,7 +12,6 @@ import {
 
 import "./nav.css";
 
-
 function LoginComponent({ account }) {
   if (account == null) {
     return (
@@ -59,8 +58,8 @@ function LoggedInSignout({ account }) {
 }
 
 function NavigationBar() {
-  const links = ["home", "profile", "discussions", "search"];
-  const icons = [faHouse, faUser, faMagnifyingGlass, faComment];
+  const links = ["home", "profile", "search"];
+  const icons = [faHouse, faUser, faMagnifyingGlass];
   const [account, setAccount] = useState(null);
   const fetchAccount = async () => {
     const account = await client.account();
