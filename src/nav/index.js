@@ -1,3 +1,5 @@
+import * as client from "../users/client";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,27 +12,10 @@ import {
 
 import "./nav.css";
 
-function NavigationBar() {
-    const links = ["home", "profile", "discussions", "search"];
-    const icons = [faHouse, faUser, faMagnifyingGlass, faComment];
-
-    const { pathname } = useLocation();
-    return (
-        <div className="navbar">
-            <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo" />
-
-            {/*navbar links*/}
-            <div className="list-group float-top ps-4" style={{ width: 250 }}>
-                {links.map((link, index) => (
-                    <Link
-                        key={index}
-                        to={`/${link}`}
-                        className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
-                        <FontAwesomeIcon icon={icons[index]} className="me-2" />
-                        {link.toUpperCase()}
-                    </Link>
-                ))}
-            </div>
+function LoginComponent({ account }) {
+    console.log(account);
+    if (account == null) {
+        return (
             <div>
                 <br />
                 <h6>
@@ -48,7 +33,41 @@ function NavigationBar() {
                     Sign In
                 </Link>
             </div>
+        );
+    }
+}
 
+function NavigationBar() {
+    const links = ["home", "profile", "discussions", "search"];
+    const icons = [faHouse, faUser, faMagnifyingGlass, faComment];
+    const [account, setAccount] = useState(null);
+    const fetchAccount = async () => {
+        const account = await client.account();
+        setAccount(account);
+    };
+    useEffect(() => {
+        fetchAccount();
+    }, []); 
+    const { pathname } = useLocation();
+    return (
+        <div className="navbar">
+            <image src="%PUBLIC_URL%/gameLogo.png" alt="Game List Logo" />
+
+            {/*navbar links*/}
+            <div className="list-group float-top ps-4" style={{ width: 250 }}>
+                {links.map((link, index) => (
+                    <Link
+                        key={index}
+                        to={`/${link}`}
+                        className={`list-group-item ${(pathname.includes(link) && "navbar-item-active") || "navbar-item"}`}>
+                        <FontAwesomeIcon icon={icons[index]} className="me-2" />
+                        {link.toUpperCase()}
+                    </Link>
+                ))}
+            </div>
+            {<LoginComponent
+                account={account}
+            />}
         </div>
     );
 }
