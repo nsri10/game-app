@@ -49,7 +49,7 @@ function Webpage() {
             <Route path="/" element={<Navigate to="/home/" />} />
             <Route path="/home/*" element={<Home />} />
             <Route path="/search/:searchString" element={<Search key={refresh}/>} />
-            <Route path="/search/*" element={<Search />} />
+            <Route path="/search/" element={<Search key={refresh}/>} />
             <Route path="/details/" element={<Navigate to="/search/" />} />
             <Route path="/details/:gameID" element={<Details />} />
             <Route path="/profile/" element={<Profile key={refresh}/>} />

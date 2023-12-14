@@ -6,8 +6,10 @@ function GameImg({ gameId }) {
 
     const getImgByGameId = async (gameId) => {
         const gotImg = await client.findGameImgById(gameId);
-        setImg(gotImg[0].url);
-        console.log(img);
+        if (gotImg.length != 0) {
+            setImg(gotImg[0].url);
+            //console.log(img);
+        }
     }
 
     useEffect(() => {

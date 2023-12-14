@@ -20,22 +20,23 @@ function Search() {
 
         setGames(gotGames);
     };
-    /*
-        const getUsers = async () => {
-            const gotUsers = await client.findAllGames();
-     
-            if (searchString) {
-                const searchGames = gotGames.filter((r) => r.title.includes(searchString));
-                setGames(searchGames);
-                return;
-            }
-            setGames(gotGames);
-            console.log(searchString);
-        };*/
-        
+
+    const getUsers = async () => {
+        const gotUsers = await client.findAllUsers();
+
+        if (searchString) {
+            const searchUsers = gotUsers.filter((r) => r.title.includes(searchString));
+            setUsers(searchUsers);
+            return;
+        }
+        setUsers(gotUsers);
+    };
+
 
     useEffect(() => {
         getGames();
+        getUsers();
+        console.log(searchString);
     }, []);
 
     //  /imgs/placeholders/shoot.png ${getImgByGameId(game.id)} https:${game.cover.url}
@@ -51,7 +52,7 @@ function Search() {
                             to={`/details/${game.id}`}
                             className={"list-group-item result"}>
                             <div key={index} className="game_result">
-                                <GameImg gameId={game.id}/><br />
+                                <GameImg gameId={game.id} /><br />
                                 <h2>{game.name}</h2>
                             </div>
                             <hr />
