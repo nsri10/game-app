@@ -34,11 +34,14 @@ function Webpage() {
               onChange={(e) => setSearch(e.target.value)}
             />
             <Link
-              className="btn btn-circle btn-primary"
+              className="btn btn-circle"
               to={`/search/${search}`}
               onClick={() => setRefresh(!refresh)}
             >
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                style={{ color: "#262a2c" }}
+              />
             </Link>
           </div>
         </div>
