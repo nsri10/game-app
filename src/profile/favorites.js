@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 let num = 0;
 function Favorites({ favGame }) {
@@ -9,7 +9,15 @@ function Favorites({ favGame }) {
         <div className="ms-2 me-5">
             <h4>{`Favorites (${num})`}</h4>
             {favGame && (
-                <h1>{favGame}</h1>
+                <ul className="user-list">
+                    {favGame.map((gameId) => (
+                        <li>
+                            <Link to={`/details/${gameId}`} className="user-list-text ms-2">
+                                    {gameId}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
     )
