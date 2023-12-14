@@ -25,7 +25,7 @@ function Search() {
     const gotUsers = await client.findAllUsers();
 
     if (searchString) {
-      const searchUsers = gotUsers.filter((r) => r.title.includes(searchString));
+      const searchUsers = gotUsers.filter((r) => r.username.includes(searchString));
       setUsers(searchUsers);
       return;
     }
@@ -72,7 +72,7 @@ function Search() {
                   src="/imgs/placeholders/674277730124300298.png"
                 />
                 <br />
-                <span>@{user.name}</span>
+                <span>@{user.username}</span>
               </div>
             </div>
           ))}
