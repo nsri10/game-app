@@ -13,6 +13,14 @@
     height: 200px;
 }
 
+.role {
+    font-weight: 600;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.785);
+    margin-top: 10%;
+    margin-left: 0;
+}
+
 .about-header {
     font-weight: 600;
     font-size: small;

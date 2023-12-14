@@ -1,66 +1,65 @@
 import * as client from "../users/client";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import ProfilePicture from "./picture";
+import Username from "./username";
+import About from "./about";
+import Favorites from "./favorites";
 import "./profile.css";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
-
-function ProfilePicture({ pfp }) {
-    if (pfp) {
-        return (
-            <img src={`/imgs/placeholders/${pfp}`} className="profile-picture ms-2 me-3"/>
-        );
-    } else {
-        return (
-            <FontAwesomeIcon icon={faUserCircle} className="profile-icon ms-2 me-3"/>
-        );
-    }
-}
-
-function ProfileStatus({ account, username }) {
+function ConditionalProfile({ account, username }) {
     if (username) {
         return (
-            <div className="d-flex mb-5">
+            <div className="d-flex">
                 {account && (
-                <div className="d-flex">
-                    {<ProfilePicture
-                        pfp={account.pfp}
-                    />}
-                    <div>
-                        <h1 className="mb-4">{`@${account.username}`}</h1>
-                        <p className="mb-0 about-header">ABOUT ME</p>
-                        <p className="mt-0">{account.bio}</p>
+                <div>
+                    <div className="d-flex mb-5">
+                        {<ProfilePicture
+                            pfp={account.pfp}
+                        />}
+                        <div>
+                            <Username 
+                                username={account.username} 
+                                role={account.role}
+                            />
+                            <About bio={account.bio} />
+                        </div>
                     </div>
+                    <Favorites account={account}/>
                 </div>
                 )}
             </div>
         );
     } else if (account) {
         return (
-            <div className="d-flex mb-5">
-                <div className="d-flex">
-                    {account && (
-                    <div className="d-flex">
-                        {<ProfilePicture
-                            pfp={"ying_pfp.jpeg"}
-                        />}
-                        <div>
-                            <h1 className="mb-0">{`@${account.username}`}</h1>
-                            <p className="mt-1">
-                                {account.email}<br />
-                            </p>
-                            <p className="mb-0 about-header">ABOUT ME</p>
-                            <p className="mt-0">{account.bio}</p>
+            <div className="d-flex">
+                {account && (
+                <div>
+                    <div className="d-flex mb-5">
+                        <div className="d-flex">
+                            {<ProfilePicture
+                                pfp={"ying_pfp.jpeg"}
+                            />}
+                            <div>
+                                <Username 
+                                    username={account.username} 
+                                    role={account.role}
+                                />
+                                <p className="mt-1">
+                                    {account.email}<br />
+                                </p>
+                                <About bio={account.bio} />
+                            </div>
                         </div>
+                        <Link to={`/profile/edit_profile/${account.username}`}>
+                            <button className="btn btn-secondary edit-data ms-4">
+                                Edit Profile
+                            </button>
+                        </Link>
                     </div>
-                    )}
-                    <Link to={`/profile/edit_profile/${account.username}`}>
-                        <button className="btn btn-secondary edit-data ms-4">
-                            Edit Profile
-                        </button>
-                    </Link>
+                    <Favorites account={account}/>
                 </div>
+                )}
             </div>
         );
     } else {
@@ -96,13 +95,10 @@ function Profile() {
     return (
         <div className="profile mt-5 ms-5">
             <div className="d-flex mb-5">
-                {<ProfileStatus
+                {<ConditionalProfile
                     account={account}
                     username={username}
                 />}
-            </div>
-            <div>
-                <h2>Favorite Games</h2>
             </div>
         </div>
     )
