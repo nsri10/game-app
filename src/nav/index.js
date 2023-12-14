@@ -16,7 +16,7 @@ import "./nav.css";
 function LoginComponent({ account }) {
   if (account == null) {
     return (
-      <div>
+      <div className="ms-3">
         <br />
         <h6>
           Sign in or create an account to favorite games, participate in
